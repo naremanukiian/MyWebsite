@@ -76,7 +76,7 @@ section h3 {
     border: 2px solid #800020;
     border-radius: 12px;
     padding: 20px;
-    background: #f9f0f0;
+    background: #f7f7f7; /* Updated background */
 }
 
 .framed-info .info-grid {
@@ -117,7 +117,7 @@ section h3 {
     border: 2px solid #800020;
     border-radius: 12px;
     padding: 20px;
-    background: #f9f0f0;
+    background: #f7f7f7; /* Updated background */
 }
 
 .description-frame p {
@@ -167,6 +167,7 @@ section h3 {
     transform: scale(1.05);
     background: #eaeaea;
 }
+
 
 
 
