@@ -126,7 +126,7 @@ section h3 {
     color: #333333;
 }
 
-/* Cards */
+/* Cards - Education & Experience */
 .cards {
     display: flex;
     flex-direction: column;
@@ -167,6 +167,7 @@ section h3 {
     transform: scale(1.05);
     background: #eaeaea;
 }
+
 
 
 
