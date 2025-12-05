@@ -86,6 +86,13 @@ section h3 {
     font-size: 1.1em;
 }
 
+.framed-info .description {
+    margin-top: 15px;
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #333333;
+}
+
 /* Cards */
 .cards {
     display: flex;
@@ -127,6 +134,7 @@ section h3 {
     transform: scale(1.05);
     background: #eaeaea;
 }
+
 
 
 
