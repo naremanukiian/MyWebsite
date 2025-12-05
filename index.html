@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nare Manukyan - Portfolio</title>
 <link rel="stylesheet" href="style.css">
-<!-- Chart.js CDN -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -15,7 +14,8 @@
         <img src="https://i.imgur.com/pXMb56j.jpeg" alt="Nare Manukyan">
         <div class="header-text">
             <h1>Nare Manukyan</h1>
-            <h2>UFAR & Toulouse University Student | Actuarial Data Scientist</h2>
+            <h2>UFAR & Toulouse University Student</h2>
+            <p class="subtitle">Actuarial Data Scientist</p>
         </div>
     </div>
 </header>
@@ -23,12 +23,14 @@
 <main>
     <div class="content">
 
-        <!-- Personal Info -->
-        <section class="info">
+        <!-- Personal Info (enhanced) -->
+        <section class="info enhanced-info">
             <h3>Personal Info</h3>
-            <p><strong>Location:</strong> Yerevan, Armenia</p>
-            <p><strong>Date of Birth:</strong> 22.12.2005</p>
-            <p><strong>Scholarship:</strong> Liga Insurance (2024)</p>
+            <div class="info-grid">
+                <div><strong>Location:</strong> Yerevan, Armenia</div>
+                <div><strong>Date of Birth:</strong> 22.12.2005</div>
+                <div><strong>Scholarship:</strong> Liga Insurance (2024)</div>
+            </div>
         </section>
 
         <!-- Education -->
@@ -85,7 +87,7 @@
             </div>
         </section>
 
-        <!-- Temperature Chart -->
+        <!-- Temperature Chart (enhanced width) -->
         <section class="chart">
             <h3>Temperature Data</h3>
             <canvas id="temperatureChart"></canvas>
@@ -95,8 +97,5 @@
 </main>
 
 <script src="script.js"></script>
-</body>
-</html>
-
 </body>
 </html>
