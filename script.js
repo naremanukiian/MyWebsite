@@ -1,4 +1,4 @@
-// Example JSON dataset (replace with live data if needed)
+// Example dataset (replace with real sensor data)
 const sensorData = [
     { "temperature": 24.15, "timestamp": "2025-12-05T11:37:06.262534" },
     { "temperature": 24.17, "timestamp": "2025-12-05T11:37:38.004651" },
@@ -7,11 +7,11 @@ const sensorData = [
     { "temperature": 24.30, "timestamp": "2025-12-05T11:39:10.000000" }
 ];
 
-// Prepare data for chart
+// Prepare chart data
 const labels = sensorData.map(d => new Date(d.timestamp).toLocaleTimeString());
 const temperatureValues = sensorData.map(d => d.temperature);
 
-// Create Chart.js line chart
+// Chart.js line chart
 new Chart(document.getElementById('temperatureChart'), {
     type: 'line',
     data: {
@@ -23,7 +23,7 @@ new Chart(document.getElementById('temperatureChart'), {
             backgroundColor: 'rgba(128,0,32,0.2)',
             fill: true,
             tension: 0.3,
-            pointRadius: 4,
+            pointRadius: 5,
             pointBackgroundColor: '#800020'
         }]
     },
