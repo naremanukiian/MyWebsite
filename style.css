@@ -21,7 +21,7 @@ header {
 .header-container {
     display: flex;
     align-items: center;
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     gap: 30px;
 }
@@ -71,8 +71,15 @@ section h3 {
     margin-bottom: 25px;
 }
 
-/* Personal Info Grid */
-.enhanced-info .info-grid {
+/* Personal Info Frame */
+.framed-info {
+    border: 2px solid #800020;
+    border-radius: 12px;
+    padding: 20px;
+    background: #f9f0f0;
+}
+
+.framed-info .info-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
@@ -121,19 +128,5 @@ section h3 {
     background: #eaeaea;
 }
 
-/* Chart Section */
-section.chart {
-    background: #f7f7f7;
-    padding: 30px;
-    border-radius: 12px;
-    border-left: 5px solid #800020;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-section.chart canvas {
-    width: 100% !important;
-    max-width: 1100px;
-    height: 400px !important;
-}
 
 
