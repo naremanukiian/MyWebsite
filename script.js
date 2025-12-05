@@ -1,11 +1,13 @@
-// Example dataset (replace with your JSON data or API)
+// Example JSON dataset (replace with live data if needed)
 const sensorData = [
-  { "temperature": 24.15, "timestamp": "2025-12-05T11:37:06.262534" },
-  { "temperature": 24.17, "timestamp": "2025-12-05T11:37:38.004651" },
-  { "temperature": 24.20, "timestamp": "2025-12-05T11:38:10.000000" }
+    { "temperature": 24.15, "timestamp": "2025-12-05T11:37:06.262534" },
+    { "temperature": 24.17, "timestamp": "2025-12-05T11:37:38.004651" },
+    { "temperature": 24.20, "timestamp": "2025-12-05T11:38:10.000000" },
+    { "temperature": 24.25, "timestamp": "2025-12-05T11:38:40.000000" },
+    { "temperature": 24.30, "timestamp": "2025-12-05T11:39:10.000000" }
 ];
 
-// Prepare labels (time) and data (temperature)
+// Prepare data for chart
 const labels = sensorData.map(d => new Date(d.timestamp).toLocaleTimeString());
 const temperatureValues = sensorData.map(d => d.temperature);
 
@@ -17,16 +19,30 @@ new Chart(document.getElementById('temperatureChart'), {
         datasets: [{
             label: 'Temperature (°C)',
             data: temperatureValues,
-            borderColor: 'red',
-            fill: false,
-            tension: 0.3
+            borderColor: '#800020',
+            backgroundColor: 'rgba(128,0,32,0.2)',
+            fill: true,
+            tension: 0.3,
+            pointRadius: 4,
+            pointBackgroundColor: '#800020'
         }]
     },
     options: {
         responsive: true,
+        plugins: {
+            legend: { display: true },
+            tooltip: { mode: 'index', intersect: false }
+        },
         scales: {
-            x: { title: { display: true, text: 'Time' } },
-            y: { title: { display: true, text: '°C' } }
+            x: {
+                title: { display: true, text: 'Time' },
+                grid: { color: '#eee' }
+            },
+            y: {
+                title: { display: true, text: '°C' },
+                grid: { color: '#eee' }
+            }
         }
     }
 });
+
