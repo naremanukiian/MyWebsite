@@ -89,6 +89,29 @@ section h3 {
     box-shadow: 0 12px 25px rgba(0,0,0,0.15);
 }
 
+/* --- Highlight IoT Project --- */
+.card.iot-project {
+    border-left: 6px solid #0055aa; /* blue accent */
+    background: #f0f8ff; /* light blue background */
+}
+
+.card.iot-project:hover {
+    background: #e0f0ff;
+    transform: translateY(-5px) scale(1.02);
+}
+
+/* --- Project Links --- */
+.card a {
+    color: #0055aa;
+    text-decoration: underline;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.card a:hover {
+    color: #002f55;
+}
+
 /* --- Personal Info --- */
 .personal-info-text {
     display: flex;
@@ -178,6 +201,7 @@ section h3 {
     section h3 { font-size: 1.6em; }
     .personal-info-text { flex-direction: column; gap: 15px; }
 }
+
 
 
 
