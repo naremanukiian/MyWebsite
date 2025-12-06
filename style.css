@@ -7,7 +7,7 @@
 }
 
 body {
-    background: #ffffff; /* page white */
+    background: #f0f2f5; /* soft, modern gray */
     color: #222;
     line-height: 1.6;
 }
@@ -36,22 +36,32 @@ header {
     border-radius: 50%;
     border: 5px solid #ffffff;
     object-fit: cover;
+    margin-bottom: 10px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.header-text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
 .header-text h1 {
     font-size: 2.8em;
+    margin: 0;
 }
 
 .header-text h2 {
-    font-size: 1.3em;
+    font-size: 1.4em;
     font-weight: 600;
+    margin: 0;
 }
 
 .header-text .subtitle {
     font-size: 1em;
     color: #f5d6d6;
     font-weight: 400;
+    margin: 0;
 }
 
 /* --- Main Content --- */
@@ -74,51 +84,68 @@ section h3 {
     margin-bottom: 25px;
 }
 
-/* --- Frames --- */
-.framed-info, .description-frame, .card {
-    border: 2px solid #800020;
+/* --- Frames and Cards --- */
+.framed-info, .description-frame, .card, .skill {
+    background: #ffffff; /* white frames/cards */
     border-radius: 15px;
+    border: 2px solid #800020;
     padding: 25px;
-    background: #f8f8f8; /* inside frames */
     box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
 }
 
+.framed-info:hover, .description-frame:hover, .card:hover, .skill:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    background: #f7f7f7; /* subtle hover shade */
+}
+
+/* --- Personal Info --- */
+.framed-info .info-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    font-size: 1.1em;
+    margin-top: 15px;
+}
+
+/* --- Social Links --- */
+.links {
+    margin-top: 15px;
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.links a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #800020;
+    font-weight: 600;
+    font-size: 1em;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.links a:hover {
+    color: #b00034;
+    transform: scale(1.05);
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+/* --- Description Frame --- */
 .description-frame p {
     font-size: 1.15em;
     color: #333333;
     line-height: 1.7;
 }
 
-/* --- Personal Info --- */
-.personal-info-text {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 30px;
-    font-size: 1.1em;
-    margin-top: 10px;
-}
-
-.personal-info-text a {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    text-decoration: none;
-    color: #800020;
-    font-weight: 600;
-    transition: color 0.3s;
-}
-
-.personal-info-text a:hover {
-    color: #b00034;
-}
-
-.social-icon {
-    width: 20px;
-    height: 20px;
-}
-
-/* --- Cards --- */
+/* --- Cards (Education, Projects, Experience, Achievements) --- */
 .cards {
     display: flex;
     flex-direction: column;
@@ -127,16 +154,9 @@ section h3 {
 
 .card {
     border-left: 6px solid #800020;
-    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
 }
 
-.card:hover {
-    transform: translateX(7px);
-    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-    background: #e0e0e0; /* slightly darker hover */
-}
-
-/* --- Skills Grid --- */
+/* --- Skills & Languages Grid --- */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -144,36 +164,44 @@ section h3 {
 }
 
 .skill {
-    background: #f8f8f8;
+    border: 2px solid #800020;
     padding: 18px;
     text-align: center;
     border-radius: 12px;
-    border: 2px solid #800020;
     font-weight: 500;
-    transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
 }
 
-.skill:hover {
-    transform: scale(1.05);
-    background: #e0e0e0;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
-
-/* --- Responsive --- */
+/* --- Responsive Adjustments --- */
 @media (min-width: 768px) {
     .header-container {
         flex-direction: row;
         text-align: left;
         gap: 50px;
     }
+
+    .header-text {
+        max-width: 800px;
+    }
+
+    .framed-info .info-grid {
+        flex-wrap: nowrap;
+    }
 }
 
 @media (max-width: 600px) {
-    .header-text h1 { font-size: 2em; }
-    .header-text h2 { font-size: 1.1em; }
-    section h3 { font-size: 1.6em; }
-    .personal-info-text { flex-direction: column; gap: 15px; }
+    .header-text h1 {
+        font-size: 2em;
+    }
+
+    .header-text h2 {
+        font-size: 1.1em;
+    }
+
+    section h3 {
+        font-size: 1.6em;
+    }
 }
+
 
 
 
