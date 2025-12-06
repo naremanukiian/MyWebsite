@@ -71,14 +71,15 @@ section h3 {
     margin-bottom: 25px;
 }
 
-/* Personal Info Frame */
-.framed-info {
+/* Frames */
+.framed-info, .description-frame {
     border: 2px solid #800020;
     border-radius: 12px;
     padding: 20px;
-    background: #f7f7f7; /* Updated background */
+    background: #f7f7f7;
 }
 
+/* Personal Info Grid */
 .framed-info .info-grid {
     display: flex;
     flex-wrap: wrap;
@@ -112,21 +113,14 @@ section h3 {
     margin-right: 8px;
 }
 
-/* Description Frame */
-.description-frame {
-    border: 2px solid #800020;
-    border-radius: 12px;
-    padding: 20px;
-    background: #f7f7f7; /* Updated background */
-}
-
+/* Description Frame Text */
 .description-frame p {
     font-size: 1.1em;
     line-height: 1.6;
     color: #333333;
 }
 
-/* Cards - Education & Experience */
+/* Cards (Education, Projects, Experience, Achievements) */
 .cards {
     display: flex;
     flex-direction: column;
@@ -147,7 +141,7 @@ section h3 {
     background: #eaeaea;
 }
 
-/* Skills Grid */
+/* Skills & Languages Grid */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
