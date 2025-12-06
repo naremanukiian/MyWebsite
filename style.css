@@ -27,7 +27,7 @@ header {
     text-align: center;
     max-width: 1200px;
     margin: 0 auto;
-    gap: 60px;
+    gap: 25px;
 }
 
 .header-container img {
@@ -37,31 +37,32 @@ header {
     border: 5px solid #ffffff;
     object-fit: cover;
     margin-bottom: 10px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
 .header-text {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 6px;
 }
 
 .header-text h1 {
     font-size: 2.8em;
-    margin-bottom: 12px;
+    margin: 0;
 }
 
 .header-text h2 {
-    font-size: 1.4em;
+    font-size: 1.3em;
     font-weight: 600;
-    margin-bottom: 6px;
-    color: #ffe5e5; /* lighter than white for subtle contrast */
+    margin: 0;
+    color: #ffd6dc;
 }
 
 .header-text .subtitle {
     font-size: 1em;
     color: #f5d6d6;
     font-weight: 400;
+    margin: 0;
 }
 
 /* --- Main Content --- */
@@ -70,7 +71,7 @@ main .content {
     margin: 60px auto;
     display: flex;
     flex-direction: column;
-    gap: 60px;
+    gap: 50px;
     padding: 0 20px;
 }
 
@@ -80,11 +81,11 @@ section h3 {
     color: #800020;
     border-bottom: 3px solid #800020;
     display: inline-block;
-    padding-bottom: 12px;
-    margin-bottom: 30px;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
 }
 
-/* --- Frames (Personal Info & Description) --- */
+/* --- Frames --- */
 .framed-info, .description-frame {
     border: 2px solid #800020;
     border-radius: 15px;
@@ -103,9 +104,18 @@ section h3 {
 .framed-info .info-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
-    font-size: 1.1em;
-    margin-top: 15px;
+    gap: 20px;
+    font-size: 1.15em;
+    margin-top: 10px;
+}
+
+.framed-info .info-grid div {
+    flex: 1 1 250px;
+    padding: 8px 12px;
+    background: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
 /* --- Social Links --- */
@@ -114,6 +124,7 @@ section h3 {
     display: flex;
     gap: 25px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .links a {
@@ -141,7 +152,7 @@ section h3 {
 .description-frame p {
     font-size: 1.15em;
     color: #333333;
-    line-height: 1.75;
+    line-height: 1.7;
 }
 
 /* --- Cards (Education, Projects, Experience, Achievements) --- */
@@ -161,9 +172,9 @@ section h3 {
 }
 
 .card:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-    background: #f2f2f2;
+    transform: translateX(7px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+    background: #eaeaea;
 }
 
 /* --- Skills & Languages Grid --- */
@@ -186,7 +197,7 @@ section h3 {
 .skill:hover {
     transform: scale(1.05);
     background: #eaeaea;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
 /* --- Responsive Adjustments --- */
@@ -219,10 +230,12 @@ section h3 {
         font-size: 1.6em;
     }
 
-    main .content {
-        padding: 0 15px;
+    .framed-info .info-grid {
+        flex-direction: column;
+        gap: 12px;
     }
 }
+
 
 
 
