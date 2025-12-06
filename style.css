@@ -7,7 +7,7 @@
 }
 
 body {
-    background: #ffffff;
+    background: #fdfdfd; /* light off-white */
     color: #222;
     line-height: 1.6;
 }
@@ -88,7 +88,7 @@ section h3 {
     border: 2px solid #800020;
     border-radius: 15px;
     padding: 25px;
-    background: #f7f7f7;
+    background: #ffffff; /* pure white for frames */
     box-shadow: 0 6px 20px rgba(0,0,0,0.08);
     transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -98,32 +98,39 @@ section h3 {
     box-shadow: 0 12px 25px rgba(0,0,0,0.15);
 }
 
-/* --- Personal Info Horizontal --- */
+/* --- Personal Info Boxes --- */
 .info-row {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
-    align-items: center;
-    font-size: 1.15em;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 .info-item {
+    flex: 1 1 200px;
+    background: #f7f7f7; /* light gray boxes */
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    text-align: center;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 8px;
-    padding: 8px 12px;
-    background: #ffffff;
-    border-radius: 8px;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.info-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
 }
 
 .info-item a {
     text-decoration: none;
     color: #800020;
-    font-weight: 600;
     display: flex;
     align-items: center;
     gap: 6px;
@@ -219,7 +226,13 @@ section h3 {
     section h3 {
         font-size: 1.6em;
     }
+
+    .info-row {
+        flex-direction: column;
+        gap: 15px;
+    }
 }
+
 
 
 
