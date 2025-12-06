@@ -7,7 +7,7 @@
 }
 
 body {
-    background: #f8f8f8; /* slightly off-white */
+    background: #ffffff; /* page white */
     color: #222;
     line-height: 1.6;
 }
@@ -75,11 +75,11 @@ section h3 {
 }
 
 /* --- Frames --- */
-.framed-info, .description-frame {
+.framed-info, .description-frame, .card {
     border: 2px solid #800020;
     border-radius: 15px;
     padding: 25px;
-    background: #ffffff;
+    background: #f8f8f8; /* inside frames */
     box-shadow: 0 6px 20px rgba(0,0,0,0.08);
 }
 
@@ -126,18 +126,14 @@ section h3 {
 }
 
 .card {
-    background: #f7f7f7;
-    padding: 25px;
     border-left: 6px solid #800020;
-    border-radius: 15px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
     transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
 }
 
 .card:hover {
     transform: translateX(7px);
     box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-    background: #eaeaea;
+    background: #e0e0e0; /* slightly darker hover */
 }
 
 /* --- Skills Grid --- */
@@ -148,7 +144,7 @@ section h3 {
 }
 
 .skill {
-    background: #f7f7f7;
+    background: #f8f8f8;
     padding: 18px;
     text-align: center;
     border-radius: 12px;
@@ -159,7 +155,7 @@ section h3 {
 
 .skill:hover {
     transform: scale(1.05);
-    background: #eaeaea;
+    background: #e0e0e0;
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
@@ -178,6 +174,7 @@ section h3 {
     section h3 { font-size: 1.6em; }
     .personal-info-text { flex-direction: column; gap: 15px; }
 }
+
 
 
 
