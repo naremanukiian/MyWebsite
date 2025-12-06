@@ -27,7 +27,7 @@ header {
     text-align: center;
     max-width: 1200px;
     margin: 0 auto;
-    gap: 25px;
+    gap: 20px;
 }
 
 .header-container img {
@@ -36,7 +36,6 @@ header {
     border-radius: 50%;
     border: 5px solid #ffffff;
     object-fit: cover;
-    margin-bottom: 10px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
@@ -55,7 +54,6 @@ header {
     font-size: 1.3em;
     font-weight: 600;
     margin: 0;
-    color: #ffd6dc;
 }
 
 .header-text .subtitle {
@@ -82,7 +80,7 @@ section h3 {
     border-bottom: 3px solid #800020;
     display: inline-block;
     padding-bottom: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
 /* --- Frames --- */
@@ -100,17 +98,21 @@ section h3 {
     box-shadow: 0 12px 25px rgba(0,0,0,0.15);
 }
 
-/* --- Personal Info Grid --- */
-.framed-info .info-grid {
+/* --- Personal Info Horizontal --- */
+.info-row {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    justify-content: center;
+    align-items: center;
     font-size: 1.15em;
     margin-top: 10px;
 }
 
-.framed-info .info-grid div {
-    flex: 1 1 250px;
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     padding: 8px 12px;
     background: #ffffff;
     border-radius: 8px;
@@ -118,41 +120,22 @@ section h3 {
     box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
-/* --- Social Links --- */
-.links {
-    margin-top: 20px;
-    display: flex;
-    gap: 25px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.links a {
-    display: flex;
-    align-items: center;
+.info-item a {
     text-decoration: none;
     color: #800020;
     font-weight: 600;
-    font-size: 1em;
-    transition: color 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
-.links a:hover {
+.info-item a:hover {
     color: #b00034;
-    transform: scale(1.05);
 }
 
 .social-icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
-}
-
-/* --- Description Frame --- */
-.description-frame p {
-    font-size: 1.15em;
-    color: #333333;
-    line-height: 1.7;
+    width: 20px;
+    height: 20px;
 }
 
 /* --- Cards (Education, Projects, Experience, Achievements) --- */
@@ -200,6 +183,13 @@ section h3 {
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
+/* --- Description Frame --- */
+.description-frame p {
+    font-size: 1.15em;
+    color: #333333;
+    line-height: 1.7;
+}
+
 /* --- Responsive Adjustments --- */
 @media (min-width: 768px) {
     .header-container {
@@ -212,7 +202,7 @@ section h3 {
         max-width: 800px;
     }
 
-    .framed-info .info-grid {
+    .info-row {
         flex-wrap: nowrap;
     }
 }
@@ -229,12 +219,8 @@ section h3 {
     section h3 {
         font-size: 1.6em;
     }
-
-    .framed-info .info-grid {
-        flex-direction: column;
-        gap: 12px;
-    }
 }
+
 
 
 
