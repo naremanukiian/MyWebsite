@@ -7,7 +7,7 @@
 }
 
 body {
-    background: #f8f8f8; /* page soft gray */
+    background: #f8f8f8; /* soft gray page background */
     color: #222;
     line-height: 1.6;
 }
@@ -79,7 +79,7 @@ section h3 {
     border: 2px solid #800020;
     border-radius: 15px;
     padding: 25px;
-    background: #ffffff; /* frame white for contrast */
+    background: #ffffff; /* white frames for contrast */
     box-shadow: 0 6px 20px rgba(0,0,0,0.08);
     transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -87,29 +87,6 @@ section h3 {
 .framed-info:hover, .description-frame:hover, .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-}
-
-/* --- Highlight IoT Project --- */
-.card.iot-project {
-    border-left: 6px solid #0055aa; /* blue accent */
-    background: #f0f8ff; /* light blue background */
-}
-
-.card.iot-project:hover {
-    background: #e0f0ff;
-    transform: translateY(-5px) scale(1.02);
-}
-
-/* --- Project Links --- */
-.card a {
-    color: #0055aa;
-    text-decoration: underline;
-    font-weight: 600;
-    transition: color 0.3s;
-}
-
-.card a:hover {
-    color: #002f55;
 }
 
 /* --- Personal Info --- */
@@ -157,10 +134,30 @@ section h3 {
 
 .card {
     border-left: 6px solid #800020;
+    position: relative;
 }
 
 .card:hover {
     background: #f0f0f0; /* slightly gray hover */
+}
+
+/* --- View Project Button --- */
+.cards .card a {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 6px 14px;
+    background: #800020;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.3s, transform 0.2s;
+    font-size: 0.95em;
+}
+
+.cards .card a:hover {
+    background: #b00034;
+    transform: translateY(-2px);
 }
 
 /* --- Skills & Languages Grid --- */
@@ -171,7 +168,7 @@ section h3 {
 }
 
 .skill {
-    background: #ffffff; /* skills cards white */
+    background: #ffffff;
     padding: 18px;
     text-align: center;
     border-radius: 12px;
@@ -201,20 +198,3 @@ section h3 {
     section h3 { font-size: 1.6em; }
     .personal-info-text { flex-direction: column; gap: 15px; }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
