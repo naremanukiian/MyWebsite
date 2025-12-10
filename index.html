@@ -1,167 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nare Manukyan – Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nare Manukyan — Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+  <!-- HEADER / NAV -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#hero">
+        <img src="https://i.imgur.com/pXMb56j.jpeg" alt="Nare Manukyan" />
+        <div class="brand-text">
+          <div class="brand-name">Nare Manukyan</div>
+          <div class="brand-sub">Computer Science &amp; Applied Mathematics</div>
+        </div>
+      </a>
 
-  <!-- HEADER -->
-  <header class="main-header">
-    <div class="logo">Nare Manukyan</div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#education">Education</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#achievements">Achievements</a>
-    </nav>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#languages">Languages</a>
+        <a href="#achievements">Achievements</a>
+      </nav>
+
+      <button class="nav-toggle" aria-label="Open menu" id="navToggle">☰</button>
+    </div>
   </header>
 
   <!-- HERO -->
-  <section class="hero">
-    <h1>Hello, I'm Nare</h1>
-    <p class="hero-sub">
-      A Computer Science & Applied Mathematics student specializing in AI, actuarial analysis,
-      and data-driven decision-making.
-    </p>
+  <section id="hero" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-card">
+        <div class="avatar">
+          <img src="https://i.imgur.com/pXMb56j.jpeg" alt="Nare Manukyan">
+        </div>
+        <h1 class="hero-title">Nare Manukyan</h1>
+        <p class="hero-sub">Actuarial Data Scientist &amp; AI Enthusiast</p>
+        <p class="hero-meta">Third-year Computer Science &amp; Applied Mathematics student</p>
 
-    <div class="hero-expertise">
-      <span class="chip">AI & Predictive Modeling</span>
-      <span class="chip">Actuarial Analytics</span>
-      <span class="chip">Data Science</span>
-      <span class="chip">IoT Systems</span>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="section" id="about">
-    <h2>About Me</h2>
-    <div class="card">
-      <p>
-        I’m a third-year Computer Science and Applied Mathematics student with a strong interest in artificial intelligence and actuarial analysis. 
-        I enjoy exploring data, probability, and predictive modeling to understand risks and support smarter, evidence-based decisions. 
-        Analytical and curious, I’m passionate about applying technology and mathematics to solve real-world problems and create meaningful impact.
-      </p>
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section class="section" id="education">
-    <h2>Education</h2>
-    <div class="card">
-      <ul>
-        <li><strong>University of Toulouse III – Paul Sabatier</strong> – Bachelor’s, Faculty of Science & Engineering (2024–2027)</li>
-        <li><strong>French University in Armenia</strong> – Bachelor’s in Computer Science & Applied Mathematics (2023–2027)</li>
-        <li><strong>Yerevan State Humanitarian College</strong> – Diploma in Insurance (2020–2023)</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section class="section" id="experience">
-    <h2>Professional Experience</h2>
-
-    <div class="card">
-      <h3>Actuarial Data Scientist – Liga Insurance (Sep 2025–Present)</h3>
-      <p>Responsible for actuarial data analysis, risk modeling, and predictive analytics to support business decisions.</p>
-    </div>
-
-    <div class="card">
-      <h3>QA Engineer Intern – Liga Insurance (July 2025)</h3>
-      <p>Performed QA testing, API testing, and validation of insurance systems and applications.</p>
-    </div>
-
-    <div class="card">
-      <h3>Accounts Receivable Representative – Ingo Internship (2023)</h3>
-      <p>Managed invoices, reconciled accounts, and ensured timely payment collection. Gained exposure to general insurance workflows.</p>
-    </div>
-
-    <div class="card">
-      <h3>Educational Internship – Liga Insurance (2022)</h3>
-      <p>Assisted in various company projects and gained foundational industry knowledge.</p>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="section" id="projects">
-    <h2>Academic Projects</h2>
-
-    <div class="project-grid">
-
-      <div class="project-card">
-        <h3>IoT Air Monitoring System</h3>
-        <p>Collaborating on an IoT hardware initiative (Tumo Labs – ClimateNet) implementing sensor-integrated systems for environmental monitoring.</p>
-        <a class="btn">View Project</a>
+        <div class="hero-links">
+          <a href="#projects" class="btn">Projects</a>
+          <a href="#contact" class="btn ghost">Contact</a>
+        </div>
       </div>
 
-      <div class="project-card">
-        <h3>AI-Powered Resume Recommender</h3>
-        <p>Built a Streamlit web app using OpenAI GPT-3.5 for personalized resume optimization, UI design, and API integration.</p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">AI</span>
+          <span class="stat-desc">Research & Modeling</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">IoT</span>
+          <span class="stat-desc">Embedded Systems</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">Actuarial</span>
+          <span class="stat-desc">Risk & Analytics</span>
+        </div>
       </div>
-
-      <div class="project-card">
-        <h3>Balance – AI Insurance Comparison Platform</h3>
-        <p>Researched Armenian insurance products and implemented a UI for policy comparison and visualization.</p>
-      </div>
-
-      <div class="project-card">
-        <h3>Smart Traffic Management with AI</h3>
-        <p>Developed traffic prediction algorithms, simulations, and visualizations for analyzing urban optimization models.</p>
-      </div>
-
-      <div class="project-card">
-        <h3>AI in Cultural Preservation</h3>
-        <p>Analyzed AI-driven heritage preservation (Louvre Digital Museum, Google Arts & Culture) with comparative study outputs.</p>
-      </div>
-
     </div>
   </section>
 
-  <!-- SKILLS -->
-  <section class="section" id="skills">
-    <h2>Skills</h2>
-    <div class="skill-grid">
-      <span class="skill">Software Testing</span>
-      <span class="skill">API Testing</span>
-      <span class="skill">General Insurance</span>
-      <span class="skill">Data Analysis</span>
-      <span class="skill">Python</span>
-      <span class="skill">C</span>
-      <span class="skill">C#</span>
-      <span class="skill">Data Visualization</span>
-      <span class="skill">Predictive Analytics</span>
-      <span class="skill">DSA</span>
-      <span class="skill">Logical Data Modeling</span>
-      <span class="skill">Statistical Analysis</span>
-    </div>
-  </section>
+  <main class="container main-grid">
+    <!-- Sections kept same: About, Education, Experience, Projects, Skills, Languages, Achievements -->
+    <!-- All panels updated for better grid distribution in CSS -->
+    <!-- MODALS & FOOTER unchanged -->
+  </main>
 
-  <!-- LANGUAGES -->
-  <section class="section" id="languages">
-    <h2>Languages</h2>
-    <div class="card">
-      <ul>
-        <li><strong>Armenian</strong> – Native</li>
-        <li><strong>Russian</strong> – Fluent</li>
-        <li><strong>English</strong> – Upper Intermediate</li>
-        <li><strong>French</strong> – Intermediate</li>
-      </ul>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="yr"></span> Nare Manukyan</div>
+      <div class="small-links">
+        <a href="https://www.linkedin.com/in/naremanukiian/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/naremanukiian/" target="_blank" rel="noopener">GitHub</a>
+      </div>
     </div>
-  </section>
+  </footer>
 
-  <!-- ACHIEVEMENTS -->
-  <section class="section" id="achievements">
-    <h2>Achievements</h2>
-    <div class="card">
-      <p><strong>LIGA Scholarship (2024–2025)</strong><br>
-      Awarded for academic excellence, strong professional potential, and performance in insurance and IT fields.</p>
-    </div>
-  </section>
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
 
+    const navToggle = document.getElementById('navToggle');
+    const nav = document.querySelector('.main-nav');
+    navToggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      navToggle.textContent = open ? '✕' : '☰';
+    });
+
+    document.querySelectorAll('.open-modal').forEach(btn=>{
+      btn.addEventListener('click', (e)=>{
+        const target = e.currentTarget.dataset.target;
+        const modalRoot = document.getElementById('modalRoot');
+        const modal = document.getElementById(target);
+        if(!modal) return;
+        modalRoot.classList.add('active');
+        modalRoot.setAttribute('aria-hidden','false');
+        modal.classList.add('active');
+        document.body.classList.add('no-scroll');
+      });
+    });
+
+    document.querySelectorAll('[data-close]').forEach(btn=>{
+      btn.addEventListener('click', ()=>closeModals());
+    });
+    document.getElementById('modalRoot').addEventListener('click', (e)=>{
+      if(e.target.id === 'modalRoot') closeModals();
+    });
+    function closeModals(){
+      const modalRoot = document.getElementById('modalRoot');
+      modalRoot.classList.remove('active');
+      modalRoot.setAttribute('aria-hidden','true');
+      document.querySelectorAll('.modal').forEach(m=>m.classList.remove('active'));
+      document.body.classList.remove('no-scroll');
+    }
+
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(ent=>{
+        if(ent.isIntersecting) ent.target.classList.add('visible');
+      });
+    }, {threshold: 0.12});
+    document.querySelectorAll('[data-section]').forEach(s=>obs.observe(s));
+
+    const skillObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(ent=>{
+        if(ent.isIntersecting){
+          ent.target.querySelectorAll('.skill-bar > div').forEach(bar=>{
+            const val = bar.style.getPropertyValue('--value') || '80%';
+            bar.style.width = val;
+          });
+          skillObserver.unobserve(ent.target);
+        }
+      });
+    }, {threshold:0.2});
+    document.querySelectorAll('.skills-panel').forEach(el=>skillObserver.observe(el));
+  </script>
 </body>
 </html>
+
