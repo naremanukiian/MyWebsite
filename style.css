@@ -134,7 +134,7 @@ a {
 .hero-meta {
   font-size: 0.95rem;
   color: #e0c8d0;
-  margin-bottom: 2rem; /* increased spacing before buttons */
+  margin-bottom: 2.5rem; /* increased spacing before buttons */
 }
 
 .hero-links .btn {
@@ -306,9 +306,10 @@ a {
   overflow: hidden;
 }
 
+/* Gradient skill bars */
 .skill-bar > div {
   height: 100%;
-  background: #800020;
+  background: linear-gradient(90deg, #800020, #c04050);
   width: 0;
   transition: width 1s ease;
   border-radius: 10px;
@@ -331,7 +332,6 @@ a {
   color: #800020;
 }
 
-/* Language card text */
 .lang-card p {
   color: #000; /* black for language level */
 }
