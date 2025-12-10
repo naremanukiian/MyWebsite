@@ -1,16 +1,19 @@
+/* --- GOOGLE FONT --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
 /* --- GENERAL --- */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
   background-color: #fdfaf8;
   color: #222;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 a {
@@ -20,7 +23,7 @@ a {
 }
 
 a:hover {
-  color: #800020; /* burgundy */
+  color: #800020;
 }
 
 .container {
@@ -47,9 +50,9 @@ a:hover {
 }
 
 .brand-name {
-  font-size: 1.7rem;
+  font-size: 1.8rem;
   font-weight: 700;
-  color: #800020; /* burgundy */
+  color: #800020;
   cursor: pointer;
 }
 
@@ -79,7 +82,7 @@ a:hover {
 
 /* --- HERO --- */
 .hero {
-  padding: 4rem 0;
+  padding: 5rem 0 3rem 0;
   background-color: #fff8f8;
 }
 
@@ -160,7 +163,7 @@ a:hover {
 .panel {
   background-color: #fff;
   margin-bottom: 2.5rem;
-  padding: 2.2rem;
+  padding: 2.5rem;
   border-radius: 12px;
   transition: all 0.4s ease;
 }
@@ -171,30 +174,42 @@ a:hover {
 
 .panel-title {
   font-size: 2rem;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.5rem;
   color: #800020;
+  text-align: center;
 }
 
 /* --- TIMELINE --- */
 .timeline {
   position: relative;
   padding-left: 2rem;
-  margin-top: 1.2rem;
+  margin-top: 1.5rem;
 }
 
 .tl-item {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 2.2rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.tl-item::before {
+  content: '|';
+  position: absolute;
+  left: 6px;
+  top: 0;
+  font-size: 1.2rem;
+  color: #800020;
+  line-height: 1.8;
 }
 
 .tl-dot {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   background-color: #800020;
   margin-right: 1rem;
-  margin-top: 0.5rem;
+  margin-top: 0.1rem;
   flex-shrink: 0;
   transition: background-color 0.3s ease;
 }
@@ -222,7 +237,7 @@ a:hover {
 
 .project-card {
   background-color: #f9f2f2;
-  padding: 1.2rem;
+  padding: 1.3rem;
   border-radius: 12px;
   transition: all 0.3s ease;
 }
