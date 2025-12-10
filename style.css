@@ -7,7 +7,7 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background: #f8f9fa;
+  background: #f8f8f8;
   color: #222;
   line-height: 1.6;
 }
@@ -56,6 +56,7 @@ a {
 .brand-name {
   font-weight: 700;
   font-size: 1.2rem;
+  color: #800020;
 }
 
 .brand-sub {
@@ -68,10 +69,11 @@ a {
   margin-left: 1.5rem;
   font-weight: 500;
   transition: color 0.3s;
+  color: #800020;
 }
 
 .main-nav a:hover {
-  color: #007bff;
+  color: #a00030;
 }
 
 .nav-toggle {
@@ -84,7 +86,7 @@ a {
 
 /* HERO */
 .hero {
-  background: #007bff;
+  background: #800020;
   color: #fff;
   padding: 4rem 0;
   border-bottom-left-radius: 50px;
@@ -130,7 +132,7 @@ a {
 
 .hero-meta {
   font-size: 0.95rem;
-  color: #e0e0e0;
+  color: #e0c8d0;
 }
 
 .hero-links .btn {
@@ -141,11 +143,11 @@ a {
   font-weight: 500;
   transition: all 0.3s;
   background: #fff;
-  color: #007bff;
+  color: #800020;
 }
 
 .hero-links .btn:hover {
-  background: #e0e0e0;
+  background: #f0d4da;
 }
 
 .hero-links .btn.ghost {
@@ -156,7 +158,7 @@ a {
 
 .hero-links .btn.ghost:hover {
   background: #fff;
-  color: #007bff;
+  color: #800020;
 }
 
 /* PANEL TITLES */
@@ -172,7 +174,7 @@ a {
   display: block;
   width: 50px;
   height: 3px;
-  background: #007bff;
+  background: #800020;
   margin-top: 0.5rem;
   border-radius: 2px;
 }
@@ -212,12 +214,12 @@ a {
   top: 0;
   width: 15px;
   height: 15px;
-  background: #007bff;
+  background: #800020;
   border-radius: 50%;
 }
 
 .tl-dot.teal {
-  background: #20c997;
+  background: #a00030;
 }
 
 .tl-content h3 {
@@ -255,12 +257,22 @@ a {
 .project-card h4 {
   font-size: 1.1rem;
   margin-bottom: 0.7rem;
+  color: #800020;
 }
 
 .project-card p {
   font-size: 0.9rem;
   color: #555;
   margin-bottom: 1rem;
+}
+
+.project-card .link {
+  color: #800020;
+  font-weight: 500;
+}
+
+.project-card .link:hover {
+  color: #a00030;
 }
 
 /* SKILLS */
@@ -294,7 +306,7 @@ a {
 
 .skill-bar > div {
   height: 100%;
-  background: #007bff;
+  background: #800020;
   width: 0;
   transition: width 1s ease;
   border-radius: 10px;
@@ -314,6 +326,7 @@ a {
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.05);
   text-align: center;
+  color: #800020;
 }
 
 /* ACHIEVEMENTS */
@@ -323,6 +336,7 @@ a {
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.05);
   margin-top: 2rem;
+  color: #800020;
 }
 
 /* FOOTER */
@@ -331,16 +345,17 @@ a {
   text-align: center;
   background: #fff;
   margin-top: 4rem;
+  color: #800020;
 }
 
 .site-footer .small-links a {
   margin-left: 1rem;
   font-size: 0.9rem;
-  color: #555;
+  color: #800020;
 }
 
 .site-footer .small-links a:hover {
-  color: #007bff;
+  color: #a00030;
 }
 
 /* RESPONSIVE */
