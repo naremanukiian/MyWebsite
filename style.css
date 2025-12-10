@@ -49,7 +49,6 @@ a {
 .brand img {
   width: 50px;
   height: 50px;
-  border-radius: 50%;
   object-fit: cover;
 }
 
@@ -108,9 +107,7 @@ a {
   width: 150px;
   height: 150px;
   margin: 0 auto 1rem;
-  border-radius: 50%;
   overflow: hidden;
-  border: 4px solid #fff;
 }
 
 .hero-card .avatar img {
@@ -329,18 +326,11 @@ a {
   color: #800020;
 }
 
-/* Language card text */
 .lang-card p {
   color: #000; /* black for language level */
 }
 
-/* Achievements text */
-.achievement p {
-  color: #000; /* black for achievement description */
-}
-
-
-/* ACHIEVEMENTS */
+/* Achievements */
 .achievement {
   background: #fff;
   padding: 1.5rem;
@@ -348,6 +338,10 @@ a {
   box-shadow: 0 6px 18px rgba(0,0,0,0.05);
   margin-top: 2rem;
   color: #800020;
+}
+
+.achievement p {
+  color: #000; /* black achievement description */
 }
 
 /* FOOTER */
@@ -359,9 +353,13 @@ a {
   color: #800020;
 }
 
+.site-footer .small-links {
+  margin-top: 0.5rem;
+}
+
 .site-footer .small-links a {
-  margin-left: 1rem;
-  font-size: 0.9rem;
+  margin: 0 0.3rem;
+  font-size: 0.95rem;
   color: #800020;
 }
 
