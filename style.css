@@ -309,11 +309,12 @@ a {
 /* Gradient skill bars */
 .skill-bar > div {
   height: 100%;
-  background: linear-gradient(90deg, #800020, #c04050);
-  width: 0;
-  transition: width 1s ease;
+  width: var(--value); /* use the --value from HTML */
+  background: linear-gradient(90deg, #800020, #a00030); /* gradient fill */
   border-radius: 10px;
+  transition: width 1s ease;
 }
+
 
 /* LANGUAGES */
 .lang-grid {
