@@ -10,10 +10,7 @@
   <!-- HEADER / NAV -->
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#hero">
-        <div class="brand-name">Nare Manukyan</div>
-      </a>
-
+      <a class="brand" href="#hero"><div class="brand-name">Nare Manukyan</div></a>
       <nav class="main-nav" aria-label="Main navigation">
         <a href="#about">About</a>
         <a href="#education">Education</a>
@@ -23,42 +20,38 @@
         <a href="#languages">Languages</a>
         <a href="#achievements">Achievements</a>
       </nav>
-
       <button class="nav-toggle" aria-label="Open menu" id="navToggle">☰</button>
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO + ABOUT -->
   <section id="hero" class="hero">
     <div class="container hero-grid">
-      <div class="hero-image">
-        <img src="https://i.imgur.com/pXMb56j.jpeg" alt="Nare Manukyan" />
+      <div class="hero-image-wrap">
+        <img src="https://i.imgur.com/pXMb56j.jpeg" alt="Nare Manukyan" class="hero-image"/>
       </div>
-
-      <div class="hero-card">
+      <div class="hero-card about-me-card">
         <h1 class="hero-title">Nare Manukyan</h1>
         <p class="hero-sub">Actuarial Data Scientist & AI Enthusiast</p>
-        <p class="hero-meta">Third-year Computer Science & Applied Mathematics student</p>
-
+        <p class="hero-meta">Computer Science & Applied Mathematics student</p>
+        <p>I’m a third-year Computer Science and Applied Mathematics student with a strong interest in artificial intelligence and actuarial analysis. I enjoy exploring data, probability, and predictive modeling to understand risks and support smarter, evidence-based decisions. Analytical and curious, I’m passionate about applying technology and mathematics to solve real-world problems and create meaningful impact.</p>
         <div class="hero-links">
           <a href="#projects" class="btn">Projects</a>
           <a href="mailto:nare.manukian222@gmail.com" class="btn ghost">Contact</a>
+        </div>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/naremanukiian/" target="_blank">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn">
+          </a>
+          <a href="https://github.com/naremanukiian/" target="_blank">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub">
+          </a>
         </div>
       </div>
     </div>
   </section>
 
   <main class="container main-grid">
-    <!-- ABOUT -->
-    <section id="about" class="panel about-panel" data-section>
-      <h2 class="panel-title">About Me</h2>
-      <div class="panel-body">
-        <p>
-          I’m a third-year Computer Science and Applied Mathematics student with a strong interest in artificial intelligence and actuarial analysis. I enjoy exploring data, probability, and predictive modeling to understand risks and support smarter, evidence-based decisions. Analytical and curious, I’m passionate about applying technology and mathematics to solve real-world problems and create meaningful impact.
-        </p>
-      </div>
-    </section>
-
     <!-- EDUCATION -->
     <section id="education" class="panel timeline-panel" data-section>
       <h2 class="panel-title">Education</h2>
@@ -95,28 +88,21 @@
           <div class="tl-dot accent"></div>
           <div class="tl-content">
             <h3>Actuarial Data Scientist – Liga Insurance (Sep 2025–Present)</h3>
-            <p>Responsible for actuarial data analysis, risk modeling, and predictive analytics to support business decisions.</p>
+            <p>Actuarial data analysis, risk modeling, and predictive analytics to support business decisions.</p>
           </div>
         </div>
         <div class="tl-item">
           <div class="tl-dot accent"></div>
           <div class="tl-content">
             <h3>QA Engineer Intern – Liga Insurance (July 2025)</h3>
-            <p>Performed QA testing, API testing, and validation of insurance systems and applications.</p>
+            <p>Performed QA and API testing for insurance systems.</p>
           </div>
         </div>
         <div class="tl-item">
           <div class="tl-dot accent"></div>
           <div class="tl-content">
-            <h3>Accounts Receivable Representative – Ingo Internship (2023)</h3>
-            <p>Managed invoices, reconciled accounts, and ensured timely payment collection. Gained exposure to general insurance workflows.</p>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot accent"></div>
-          <div class="tl-content">
-            <h3>Educational Internship – Liga Insurance (2022)</h3>
-            <p>Assisted in various company projects and gained foundational industry knowledge.</p>
+            <h3>Accounts Receivable – Ingo Internship (2023)</h3>
+            <p>Managed invoices, reconciled accounts, and ensured timely payments.</p>
           </div>
         </div>
       </div>
@@ -161,60 +147,16 @@
       <h2 class="panel-title">Skills</h2>
       <div class="skills-wrap">
         <div class="skill-col">
-          <div class="skill-item">
-            <div class="skill-name">Software Testing</div>
-            <div class="skill-bar"><div style="--value:86%"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-name">API Testing</div>
-            <div class="skill-bar"><div style="--value:80%"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-name">General Insurance</div>
-            <div class="skill-bar"><div style="--value:78%"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-name">Data Analysis</div>
-            <div class="skill-bar"><div style="--value:88%"></div></div>
-          </div>
+          <div class="skill-item"><div class="skill-name">Software Testing</div><div class="skill-bar"><div style="--value:86%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">API Testing</div><div class="skill-bar"><div style="--value:80%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">General Insurance</div><div class="skill-bar"><div style="--value:78%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">Data Analysis</div><div class="skill-bar"><div style="--value:88%"></div></div></div>
         </div>
-
         <div class="skill-col">
-          <div class="skill-item">
-            <div class="skill-name">Python</div>
-            <div class="skill-bar"><div style="--value:92%"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-name">C</div>
-            <div class="skill-bar"><div style="--value:72%"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-name">C#</div>
-            <div class="skill-bar"><div style="--value:70%"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-name">Data Visualization</div>
-            <div class="skill-bar"><div style="--value:85%"></div></div>
-          </div>
-        </div>
-
-        <div class="skill-col wide">
-          <div class="skill-item">
-            <div class="skill-name">Predictive Analytics</div>
-            <div class="skill-bar"><div style="--value:87%"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-name">Data Structures & Algorithms</div>
-            <div class="skill-bar"><div style="--value:81%"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-name">Logical Data Modeling</div>
-            <div class="skill-bar"><div style="--value:79%"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-name">Statistical Analysis</div>
-            <div class="skill-bar"><div style="--value:84%"></div></div>
-          </div>
+          <div class="skill-item"><div class="skill-name">Python</div><div class="skill-bar"><div style="--value:92%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">C</div><div class="skill-bar"><div style="--value:72%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">C#</div><div class="skill-bar"><div style="--value:70%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">Data Visualization</div><div class="skill-bar"><div style="--value:85%"></div></div></div>
         </div>
       </div>
     </section>
@@ -223,22 +165,10 @@
     <section id="languages" class="panel languages-panel" data-section>
       <h2 class="panel-title">Languages</h2>
       <div class="languages-wrap">
-        <div class="lang-card" style="background-color:#ffe6e6;">
-          <div class="lang-name">Armenian</div>
-          <div class="lang-level">Native</div>
-        </div>
-        <div class="lang-card" style="background-color:#fff0f5;">
-          <div class="lang-name">Russian</div>
-          <div class="lang-level">Fluent</div>
-        </div>
-        <div class="lang-card" style="background-color:#ffe6f0;">
-          <div class="lang-name">English</div>
-          <div class="lang-level">Upper Intermediate</div>
-        </div>
-        <div class="lang-card" style="background-color:#fff5f5;">
-          <div class="lang-name">French</div>
-          <div class="lang-level">Intermediate</div>
-        </div>
+        <div class="lang-card" style="background-color:#ffe6e6;"><div class="lang-name">Armenian</div><div class="lang-level">Native</div></div>
+        <div class="lang-card" style="background-color:#fff0f5;"><div class="lang-name">Russian</div><div class="lang-level">Fluent</div></div>
+        <div class="lang-card" style="background-color:#ffe6f0;"><div class="lang-name">English</div><div class="lang-level">Upper Intermediate</div></div>
+        <div class="lang-card" style="background-color:#fff5f5;"><div class="lang-name">French</div><div class="lang-level">Intermediate</div></div>
       </div>
     </section>
 
@@ -247,7 +177,7 @@
       <h2 class="panel-title">Achievements</h2>
       <div class="achievement">
         <h3>LIGA Scholarship (2024–2025)</h3>
-        <p>Awarded by LIGA Insurance for academic excellence, strong professional potential, and outstanding performance in insurance and IT-related fields.</p>
+        <p>Awarded for academic excellence, strong professional potential, and outstanding performance in insurance and IT-related fields.</p>
       </div>
     </section>
   </main>
@@ -257,8 +187,8 @@
     <div class="container footer-inner">
       <p>© <span id="yr"></span> Nare Manukyan. All rights reserved.</p>
       <div class="social-links">
-        <a href="https://www.linkedin.com/in/naremanukiian/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://github.com/naremanukiian/" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/naremanukiian/" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn"></a>
+        <a href="https://github.com/naremanukiian/" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub"></a>
       </div>
     </div>
   </footer>
