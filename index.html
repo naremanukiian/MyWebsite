@@ -1,155 +1,416 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nare Manukyan - Portfolio</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nare Manukyan — Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-<header>
-    <div class="header-container">
-        <img src="https://i.imgur.com/pXMb56j.jpeg" alt="Nare Manukyan">
-        <div class="header-text">
-            <h1>Nare Manukyan</h1>
-            <h2>Computer Science & Applied Mathematics Student</h2>
-            <p class="subtitle">Actuarial Data Scientist & AI Enthusiast</p>
+  <!-- HEADER / NAV -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#hero">
+        <img src="https://i.imgur.com/pXMb56j.jpeg" alt="Nare Manukyan" />
+        <div class="brand-text">
+          <div class="brand-name">Nare Manukyan</div>
+          <div class="brand-sub">Computer Science &amp; Applied Mathematics</div>
         </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#languages">Languages</a>
+        <a href="#achievements">Achievements</a>
+      </nav>
+
+      <button class="nav-toggle" aria-label="Open menu" id="navToggle">☰</button>
     </div>
-</header>
+  </header>
 
-<main>
-    <div class="content">
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-card">
+        <div class="avatar">
+          <img src="https://i.imgur.com/pXMb56j.jpeg" alt="Nare Manukyan">
+        </div>
+        <h1 class="hero-title">Nare Manukyan</h1>
+        <p class="hero-sub">Actuarial Data Scientist &amp; AI Enthusiast</p>
+        <p class="hero-meta">Third-year Computer Science &amp; Applied Mathematics student</p>
 
-        <!-- Personal Info -->
-        <section class="info framed-info">
-            <h3>Personal Info</h3>
-            <div class="personal-info-text">
-                <div><strong>Location:</strong> Yerevan, Armenia</div>
-                <div><strong>Date of Birth:</strong> 22.12.2005</div>
-                <a href="https://www.linkedin.com/in/naremanukiian/" target="_blank">
-                    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="social-icon"> LinkedIn
-                </a>
-                <a href="https://github.com/naremanukiian/" target="_blank">
-                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" class="social-icon"> GitHub
-                </a>
-            </div>
-        </section>
+        <div class="hero-links">
+          <a href="#projects" class="btn">Projects</a>
+          <a href="#contact" class="btn ghost">Contact</a>
+        </div>
+      </div>
 
-        <!-- Description -->
-        <section class="description-frame">
-            <h3>About Me</h3>
-            <p>
-                I’m a third-year Computer Science and Applied Mathematics student with a strong interest in artificial intelligence and actuarial analysis. I enjoy exploring data, probability, and predictive modeling to understand risks and support smarter, evidence-based decisions. Analytical and curious, I’m passionate about applying technology and mathematics to solve real-world problems and create meaningful impact.
-            </p>
-        </section>
-
-        <!-- Education -->
-        <section class="education">
-            <h3>Education</h3>
-            <div class="cards">
-                <div class="card"><strong>University of Toulouse III – Paul Sabatier</strong> – Bachelor’s, Faculty of Science & Engineering (2024 – 2027)</div>
-                <div class="card"><strong>French University in Armenia</strong> – Bachelor’s in Computer Science & Applied Mathematics (2023 – 2027)</div>
-                <div class="card"><strong>Yerevan State Humanitarian College</strong> – Diploma in Insurance (2020 – 2023)</div>
-            </div>
-        </section>
-
-        <!-- Professional Experience -->
-        <section class="experience">
-            <h3>Professional Experience</h3>
-            <div class="cards">
-                <div class="card">
-                    <strong>Actuarial Data Scientist – Liga Insurance (Sep 2025–Present)</strong>
-                    <p>Responsible for actuarial data analysis, risk modeling, and predictive analytics to support business decisions.</p>
-                </div>
-                <div class="card">
-                    <strong>QA Engineer Intern – Liga Insurance (July 2025)</strong>
-                    <p>Performed QA testing, API testing, and validation of insurance systems and applications.</p>
-                </div>
-                <div class="card">
-                    <strong>Accounts Receivable Representative – Ingo Internship (2023)</strong>
-                    <p>Managed invoices, reconciled accounts, and ensured timely payment collection. Gained exposure to general insurance workflows.</p>
-                </div>
-                <div class="card">
-                    <strong>Educational Internship – Liga Insurance (2022)</strong>
-                    <p>Assisted in various company projects and gained foundational industry knowledge.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Academic Projects -->
-        <section class="projects">
-            <h3>Academic Projects</h3>
-            <div class="cards">
-                <div class="card">
-                    <strong>IoT Air Monitoring System</strong>
-                    <p>Collaborating on an IoT-based hardware initiative (Tumo Labs – ClimateNet Project), designing and developing sensor-integrated systems to monitor environmental air quality with a focus on practical implementation, data reliability, and real-world impact.</p>
-                    <a href="https://naremanukiian.github.io/IoTAirQuality/" target="_blank">View Project</a>
-                </div>
-                <div class="card">
-                    <strong>AI-Powered Resume Recommender</strong>
-                    <p>Built a Streamlit web app leveraging OpenAI GPT-3.5 for personalized resume suggestions. Designed UI, integrated API, implemented fallback logic, and tested functionality.</p>
-                </div>
-                <div class="card">
-                    <strong>Balance – AI Insurance Comparison Platform</strong>
-                    <p>Conducted market research on Armenian insurance products and customer needs. Designed and implemented a frontend interface for policy visualization and comparison.</p>
-                </div>
-                <div class="card">
-                    <strong>Smart Traffic Management with AI</strong>
-                    <p>Studied AI applications in urban traffic prediction and signal optimization. Developed predictive algorithms and simulations, producing visualizations for analysis and reporting.</p>
-                </div>
-                <div class="card">
-                    <strong>AI in Cultural Preservation</strong>
-                    <p>Researched AI applications in heritage preservation (Louvre Digital Museum, Google Arts & Culture). Produced comparative analyses and visual presentations, highlighting AI’s potential in preserving cultural projects.</p>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Skills -->
-        <section class="skills">
-            <h3>Skills</h3>
-            <div class="skills-grid">
-                <div class="skill">Software Testing</div>
-                <div class="skill">API Testing</div>
-                <div class="skill">General Insurance</div>
-                <div class="skill">Data Analysis</div>
-                <div class="skill">Python</div>
-                <div class="skill">C</div>
-                <div class="skill">C#</div>
-                <div class="skill">Data Visualization</div> 
-                <div class="skill">Predictive Analytics</div>
-                <div class="skill">Data Structures & Algorithms</div>
-                <div class="skill">Logical Data Modeling</div>
-                <div class="skill">Statistical Analysis</div>
-            </div>
-        </section>
-
-        <!-- Languages -->
-        <section class="languages">
-            <h3>Languages</h3>
-            <div class="skills-grid">
-                <div class="skill">Armenian – Native</div>
-                <div class="skill">Russian – Fluent</div>
-                <div class="skill">English – Upper Intermediate</div>
-                <div class="skill">French – Intermediate</div>
-            </div>
-        </section>
-
-        <!-- Achievements -->
-        <section class="achievements">
-            <h3>Achievements</h3>
-            <div class="cards">
-                <div class="card">
-                    <strong>LIGA Scholarship (2024–2025)</strong>
-                    <p>Awarded by LIGA Insurance for academic excellence, strong professional potential, and outstanding performance in insurance and IT-related fields.</p>
-                </div>
-            </div>
-        </section>
-
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">AI</span>
+          <span class="stat-desc">Research & Modeling</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">IoT</span>
+          <span class="stat-desc">Embedded Systems</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">Actuarial</span>
+          <span class="stat-desc">Risk & Analytics</span>
+        </div>
+      </div>
     </div>
-</main>
+  </section>
 
+  <main class="container main-grid">
+
+    <!-- ABOUT (kept exact text) -->
+    <section id="about" class="panel about-panel" data-section>
+      <h2 class="panel-title">About Me</h2>
+      <div class="panel-body">
+        <p>
+I’m a third-year Computer Science and Applied Mathematics student with a strong interest in artificial intelligence and actuarial analysis. I enjoy exploring data, probability, and predictive modeling to understand risks and support smarter, evidence-based decisions. Analytical and curious, I’m passionate about applying technology and mathematics to solve real-world problems and create meaningful impact.
+        </p>
+      </div>
+    </section>
+
+    <!-- EDUCATION (timeline) -->
+    <section id="education" class="panel timeline-panel" data-section>
+      <h2 class="panel-title">Education</h2>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <h3>University of Toulouse III – Paul Sabatier</h3>
+            <p>Bachelor’s, Faculty of Science &amp; Engineering (2024 – 2027)</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <h3>French University in Armenia</h3>
+            <p>Bachelor’s in Computer Science &amp; Applied Mathematics (2023 – 2027)</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <h3>Yerevan State Humanitarian College</h3>
+            <p>Diploma in Insurance (2020 – 2023)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE (timeline with expanded descriptions) -->
+    <section id="experience" class="panel timeline-panel" data-section>
+      <h2 class="panel-title">Professional Experience</h2>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot teal"></div>
+          <div class="tl-content">
+            <h3>Actuarial Data Scientist – Liga Insurance (Sep 2025–Present)</h3>
+            <p>Responsible for actuarial data analysis, risk modeling, and predictive analytics to support business decisions.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot teal"></div>
+          <div class="tl-content">
+            <h3>QA Engineer Intern – Liga Insurance (July 2025)</h3>
+            <p>Performed QA testing, API testing, and validation of insurance systems and applications.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot teal"></div>
+          <div class="tl-content">
+            <h3>Accounts Receivable Representative – Ingo Internship (2023)</h3>
+            <p>Managed invoices, reconciled accounts, and ensured timely payment collection. Gained exposure to general insurance workflows.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot teal"></div>
+          <div class="tl-content">
+            <h3>Educational Internship – Liga Insurance (2022)</h3>
+            <p>Assisted in various company projects and gained foundational industry knowledge.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS (grid with modal previews button) -->
+    <section id="projects" class="panel projects-panel" data-section>
+      <h2 class="panel-title">Academic Projects</h2>
+
+      <div class="projects-grid">
+
+        <article class="project-card" data-proj="proj-1">
+          <h4>IoT Air Monitoring System</h4>
+          <p>Collaborating on an IoT-based hardware initiative (Tumo Labs – ClimateNet Project), designing and developing sensor-integrated systems to monitor environmental air quality with a focus on practical implementation, data reliability, and real-world impact.</p>
+          <div class="proj-actions">
+            <a href="https://naremanukiian.github.io/IoTAirQuality/" target="_blank" rel="noopener" class="link">View Project</a>
+            <button class="open-modal" data-target="proj-1">Details</button>
+          </div>
+        </article>
+
+        <article class="project-card" data-proj="proj-2">
+          <h4>AI-Powered Resume Recommender</h4>
+          <p>Built a Streamlit web app leveraging OpenAI GPT-3.5 for personalized resume suggestions. Designed UI, integrated API, implemented fallback logic, and tested functionality.</p>
+          <div class="proj-actions">
+            <button class="open-modal" data-target="proj-2">Details</button>
+          </div>
+        </article>
+
+        <article class="project-card" data-proj="proj-3">
+          <h4>Balance – AI Insurance Comparison Platform</h4>
+          <p>Conducted market research on Armenian insurance products and customer needs. Designed and implemented a frontend interface for policy visualization and comparison.</p>
+          <div class="proj-actions">
+            <button class="open-modal" data-target="proj-3">Details</button>
+          </div>
+        </article>
+
+        <article class="project-card" data-proj="proj-4">
+          <h4>Smart Traffic Management with AI</h4>
+          <p>Studied AI applications in urban traffic prediction and signal optimization. Developed predictive algorithms and simulations, producing visualizations for analysis and reporting.</p>
+          <div class="proj-actions">
+            <button class="open-modal" data-target="proj-4">Details</button>
+          </div>
+        </article>
+
+        <article class="project-card" data-proj="proj-5">
+          <h4>AI in Cultural Preservation</h4>
+          <p>Researched AI applications in heritage preservation (Louvre Digital Museum, Google Arts &amp; Culture). Produced comparative analyses and visual presentations, highlighting AI’s potential in preserving cultural projects.</p>
+          <div class="proj-actions">
+            <button class="open-modal" data-target="proj-5">Details</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="panel skills-panel" data-section>
+      <h2 class="panel-title">Skills</h2>
+      <div class="skills-wrap">
+        <div class="skill-col">
+          <div class="skill-item">
+            <div class="skill-name">Software Testing</div>
+            <div class="skill-bar"><div style="--value:86%"></div></div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">API Testing</div>
+            <div class="skill-bar"><div style="--value:80%"></div></div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">General Insurance</div>
+            <div class="skill-bar"><div style="--value:78%"></div></div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">Data Analysis</div>
+            <div class="skill-bar"><div style="--value:88%"></div></div>
+          </div>
+        </div>
+
+        <div class="skill-col">
+          <div class="skill-item">
+            <div class="skill-name">Python</div>
+            <div class="skill-bar"><div style="--value:92%"></div></div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">C</div>
+            <div class="skill-bar"><div style="--value:72%"></div></div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">C#</div>
+            <div class="skill-bar"><div style="--value:70%"></div></div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">Data Visualization</div>
+            <div class="skill-bar"><div style="--value:85%"></div></div>
+          </div>
+        </div>
+
+        <div class="skill-col wide">
+          <div class="skill-item">
+            <div class="skill-name">Predictive Analytics</div>
+            <div class="skill-bar"><div style="--value:87%"></div></div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">Data Structures &amp; Algorithms</div>
+            <div class="skill-bar"><div style="--value:81%"></div></div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">Logical Data Modeling</div>
+            <div class="skill-bar"><div style="--value:79%"></div></div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">Statistical Analysis</div>
+            <div class="skill-bar"><div style="--value:84%"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LANGUAGES -->
+    <section id="languages" class="panel languages-panel" data-section>
+      <h2 class="panel-title">Languages</h2>
+      <div class="lang-grid">
+        <div class="lang-card">
+          <h4>Armenian</h4>
+          <p>Native</p>
+        </div>
+        <div class="lang-card">
+          <h4>Russian</h4>
+          <p>Fluent</p>
+        </div>
+        <div class="lang-card">
+          <h4>English</h4>
+          <p>Upper Intermediate</p>
+        </div>
+        <div class="lang-card">
+          <h4>French</h4>
+          <p>Intermediate</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements" class="panel" data-section>
+      <h2 class="panel-title">Achievements</h2>
+      <div class="achievement">
+        <h3>LIGA Scholarship (2024–2025)</h3>
+        <p>Awarded by LIGA Insurance for academic excellence, strong professional potential, and outstanding performance in insurance and IT-related fields.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="yr"></span> Nare Manukyan</div>
+      <div class="small-links">
+        <a href="https://www.linkedin.com/in/naremanukiian/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/naremanukiian/" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PROJECT MODALS (hidden) -->
+  <div id="modalRoot" class="modal-root" aria-hidden="true">
+    <div class="modal" id="proj-1">
+      <button class="modal-close" data-close>✕</button>
+      <h3>IoT Air Monitoring System</h3>
+      <p>Collaborating on an IoT-based hardware initiative (Tumo Labs – ClimateNet Project), designing and developing sensor-integrated systems to monitor environmental air quality with a focus on practical implementation, data reliability, and real-world impact.</p>
+      <a class="link" href="https://naremanukiian.github.io/IoTAirQuality/" target="_blank" rel="noopener">Open Project Page</a>
+    </div>
+
+    <div class="modal" id="proj-2">
+      <button class="modal-close" data-close>✕</button>
+      <h3>AI-Powered Resume Recommender</h3>
+      <p>Built a Streamlit web app leveraging OpenAI GPT-3.5 for personalized resume suggestions. Designed UI, integrated API, implemented fallback logic, and tested functionality.</p>
+    </div>
+
+    <div class="modal" id="proj-3">
+      <button class="modal-close" data-close>✕</button>
+      <h3>Balance – AI Insurance Comparison Platform</h3>
+      <p>Conducted market research on Armenian insurance products and customer needs. Designed and implemented a frontend interface for policy visualization and comparison.</p>
+    </div>
+
+    <div class="modal" id="proj-4">
+      <button class="modal-close" data-close>✕</button>
+      <h3>Smart Traffic Management with AI</h3>
+      <p>Studied AI applications in urban traffic prediction and signal optimization. Developed predictive algorithms and simulations, producing visualizations for analysis and reporting.</p>
+    </div>
+
+    <div class="modal" id="proj-5">
+      <button class="modal-close" data-close>✕</button>
+      <h3>AI in Cultural Preservation</h3>
+      <p>Researched AI applications in heritage preservation (Louvre Digital Museum, Google Arts &amp; Culture). Produced comparative analyses and visual presentations, highlighting AI’s potential in preserving cultural projects.</p>
+    </div>
+  </div>
+
+  <script>
+    // small helpers: nav toggle, modal open/close, skill bar animation, reveal on scroll, set year
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // mobile nav
+    const navToggle = document.getElementById('navToggle');
+    const nav = document.querySelector('.main-nav');
+    navToggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      navToggle.textContent = open ? '✕' : '☰';
+    });
+
+    // modal open
+    document.querySelectorAll('.open-modal').forEach(btn=>{
+      btn.addEventListener('click', (e)=>{
+        const target = e.currentTarget.dataset.target;
+        const modalRoot = document.getElementById('modalRoot');
+        const modal = document.getElementById(target);
+        if(!modal) return;
+        modalRoot.classList.add('active');
+        modalRoot.setAttribute('aria-hidden','false');
+        modal.classList.add('active');
+        document.body.classList.add('no-scroll');
+      });
+    });
+
+    // modal close
+    document.querySelectorAll('[data-close]').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        closeModals();
+      });
+    });
+    document.getElementById('modalRoot').addEventListener('click', (e)=>{
+      if(e.target.id === 'modalRoot') closeModals();
+    });
+    function closeModals(){
+      document.getElementById('modalRoot').classList.remove('active');
+      document.getElementById('modalRoot').setAttribute('aria-hidden','true');
+      document.querySelectorAll('.modal').forEach(m=>m.classList.remove('active'));
+      document.body.classList.remove('no-scroll');
+    }
+
+    // simple intersection observer for sections
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(ent=>{
+        if(ent.isIntersecting) ent.target.classList.add('visible');
+      });
+    }, {threshold: 0.12});
+    document.querySelectorAll('[data-section]').forEach(s=>obs.observe(s));
+
+    // animate skill bars on view
+    const skillObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(ent=>{
+        if(ent.isIntersecting){
+          ent.target.querySelectorAll('.skill-bar > div').forEach(bar=>{
+            const val = bar.style.getPropertyValue('--value') || '80%';
+            bar.style.width = val;
+          });
+          skillObserver.unobserve(ent.target);
+        }
+      });
+    }, {threshold:0.2});
+    document.querySelectorAll('.skills-panel').forEach(el=>skillObserver.observe(el));
+  </script>
 </body>
 </html>
