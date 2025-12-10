@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: #f8f8f8;
+  background-color: #fdfaf8;
   color: #222;
   line-height: 1.6;
 }
@@ -20,7 +20,7 @@ a {
 }
 
 a:hover {
-  color: #ff6b6b;
+  color: #800020; /* burgundy */
 }
 
 .container {
@@ -47,30 +47,31 @@ a:hover {
 }
 
 .brand-name {
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   font-weight: 700;
-  color: #ff6b6b;
+  color: #800020; /* burgundy */
   cursor: pointer;
 }
 
 .main-nav {
   display: flex;
-  gap: 1.2rem;
+  gap: 1.5rem;
 }
 
 .main-nav a {
   padding: 0.5rem 0.8rem;
   border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
 .main-nav a:hover {
-  background-color: #ff6b6b;
+  background-color: #800020;
   color: #fff;
 }
 
 .nav-toggle {
   display: none;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   cursor: pointer;
   background: none;
   border: none;
@@ -79,7 +80,7 @@ a:hover {
 /* --- HERO --- */
 .hero {
   padding: 4rem 0;
-  background: linear-gradient(135deg,#ffe6e6,#fff5f5);
+  background-color: #fff8f8;
 }
 
 .hero-grid {
@@ -95,8 +96,8 @@ a:hover {
 }
 
 .hero-card h1 {
-  font-size: 2.5rem;
-  color: #ff6b6b;
+  font-size: 2.8rem;
+  color: #800020;
   margin-bottom: 0.5rem;
 }
 
@@ -112,26 +113,26 @@ a:hover {
 }
 
 .btn {
-  padding: 0.6rem 1.2rem;
-  background-color: #ff6b6b;
+  padding: 0.7rem 1.4rem;
+  background-color: #800020;
   color: #fff;
-  border-radius: 5px;
+  border-radius: 6px;
   font-weight: 600;
   transition: all 0.3s ease;
 }
 
 .btn:hover {
-  background-color: #ff4b4b;
+  background-color: #a00030;
 }
 
 .btn.ghost {
   background-color: transparent;
-  border: 2px solid #ff6b6b;
-  color: #ff6b6b;
+  border: 2px solid #800020;
+  color: #800020;
 }
 
 .btn.ghost:hover {
-  background-color: #ff6b6b;
+  background-color: #800020;
   color: #fff;
 }
 
@@ -140,67 +141,70 @@ a:hover {
   min-width: 250px;
   display: flex;
   justify-content: center;
+  order: -1; /* image on left */
 }
 
 .hero-image img {
   width: 100%;
-  max-width: 300px;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
+  max-width: 320px;
+  border-radius: 12px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .hero-image img:hover {
   transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
 /* --- PANELS --- */
 .panel {
   background-color: #fff;
-  margin-bottom: 2rem;
-  padding: 2rem;
-  border-radius: 10px;
-  transition: all 0.3s ease;
+  margin-bottom: 2.5rem;
+  padding: 2.2rem;
+  border-radius: 12px;
+  transition: all 0.4s ease;
 }
 
 .panel:hover {
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
 }
 
 .panel-title {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  color: #ff6b6b;
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+  color: #800020;
 }
 
 /* --- TIMELINE --- */
 .timeline {
   position: relative;
   padding-left: 2rem;
-  margin-top: 1rem;
+  margin-top: 1.2rem;
 }
 
 .tl-item {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 2rem;
+  margin-bottom: 2.2rem;
 }
 
 .tl-dot {
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  background-color: #ff6b6b;
+  background-color: #800020;
   margin-right: 1rem;
   margin-top: 0.5rem;
   flex-shrink: 0;
+  transition: background-color 0.3s ease;
 }
 
 .tl-dot.accent {
-  background-color: #ff4b4b;
+  background-color: #a00030;
 }
 
 .tl-content h3 {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   margin-bottom: 0.3rem;
 }
 
@@ -217,30 +221,29 @@ a:hover {
 }
 
 .project-card {
-  background-color: #fff0f5;
-  padding: 1rem;
-  border-radius: 10px;
+  background-color: #f9f2f2;
+  padding: 1.2rem;
+  border-radius: 12px;
   transition: all 0.3s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
 }
 
 .project-card h4 {
   margin-bottom: 0.5rem;
-  color: #ff6b6b;
+  color: #800020;
 }
 
 .proj-actions .link {
-  color: #ff4b4b;
+  color: #a00030;
   font-weight: 600;
-  transition: color 0.3s ease;
 }
 
 .proj-actions .link:hover {
-  color: #ff1a1a;
+  color: #800020;
 }
 
 /* --- SKILLS --- */
@@ -266,15 +269,15 @@ a:hover {
 
 .skill-bar {
   background-color: #f2f2f2;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
-  height: 12px;
+  height: 14px;
 }
 
 .skill-bar div {
   height: 100%;
   width: var(--value);
-  background-color: #ff6b6b;
+  background-color: #800020;
   transition: width 0.5s ease;
 }
 
@@ -289,19 +292,21 @@ a:hover {
   flex: 1;
   min-width: 150px;
   padding: 1rem;
-  border-radius: 10px;
+  border-radius: 12px;
   text-align: center;
+  background-color: #fff0f0;
   transition: all 0.3s ease;
 }
 
 .lang-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
 }
 
 .lang-name {
   font-weight: 700;
   margin-bottom: 0.3rem;
+  color: #800020;
 }
 
 /* --- FOOTER --- */
@@ -313,19 +318,18 @@ a:hover {
 }
 
 .site-footer a {
-  color: #ff6b6b;
+  color: #800020;
   margin: 0 0.5rem;
-  transition: color 0.3s ease;
 }
 
 .site-footer a:hover {
-  color: #ff1a1a;
+  color: #a00030;
 }
 
 /* --- RESPONSIVE --- */
 @media (max-width: 900px) {
   .hero-grid {
-    flex-direction: column-reverse;
+    flex-direction: column;
     text-align: center;
   }
   .hero-card {
