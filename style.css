@@ -134,7 +134,7 @@ a {
 .hero-meta {
   font-size: 0.95rem;
   color: #e0c8d0;
-  margin-bottom: 2.5rem; /* increased spacing before buttons */
+  margin-bottom: 2rem; /* increased spacing before buttons */
 }
 
 .hero-links .btn {
