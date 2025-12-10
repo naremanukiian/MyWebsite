@@ -329,6 +329,17 @@ a {
   color: #800020;
 }
 
+/* Language card text */
+.lang-card p {
+  color: #000; /* black for language level */
+}
+
+/* Achievements text */
+.achievement p {
+  color: #000; /* black for achievement description */
+}
+
+
 /* ACHIEVEMENTS */
 .achievement {
   background: #fff;
