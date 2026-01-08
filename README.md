@@ -3,8 +3,8 @@
 This repository contains the source code for my **personal portfolio website**, built using **HTML, CSS, and JavaScript**. The website showcases my academic background, professional experience, projects, technical skills, and achievements in a clean, responsive, and modern design.
 
 🔗 **Live Demo:**  
-https://naremanukiian.github.io/
-
+[https://naremanukiian.github.io/
+](https://naremanukiian.github.io/MyWebsite/)
 ---
 
 ## 📌 Overview
