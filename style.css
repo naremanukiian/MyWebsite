@@ -86,7 +86,7 @@ a {
 
 /* HERO SECTION */
 .hero {
-  min-height: 100vh;
+  height: 80vh; /* smaller than full viewport */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -103,7 +103,7 @@ a {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  max-width: 1100px;
+  max-width: 1000px;
   gap: 2rem;
 }
 
@@ -112,15 +112,9 @@ a {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
   border-radius: 20px;
-  padding: 1.8rem 2rem;
+  padding: 2rem;
   box-shadow: 0 12px 30px rgba(0,0,0,0.25);
   border: 1px solid rgba(255,255,255,0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.glass:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 45px rgba(0,0,0,0.4);
 }
 
 /* TEXT */
@@ -130,7 +124,7 @@ a {
 }
 
 .hero-text-card h1 {
-  font-size: 2.4rem;
+  font-size: 2.6rem; /* slightly larger */
   font-weight: 800;
   margin-bottom: 0.5rem;
   letter-spacing: 0.5px;
@@ -138,14 +132,14 @@ a {
 }
 
 .hero-text-card h2 {
-  font-size: 1.3rem;
+  font-size: 1.4rem; /* slightly larger */
   font-weight: 500;
   color: #f0c8d0;
   margin-bottom: 0.8rem;
 }
 
 .hero-text-card p {
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.5;
   margin-bottom: 1.5rem;
   max-width: 420px;
@@ -154,12 +148,12 @@ a {
 /* BUTTONS */
 .hero-links .btn {
   display: inline-block;
-  padding: 0.65rem 1.8rem;
+  padding: 0.7rem 1.9rem; /* slightly larger */
   border-radius: 30px;
   font-weight: 500;
   text-decoration: none;
   margin-right: 0.8rem;
-  font-size: 0.95rem;
+  font-size: 1rem;
   transition: all 0.3s ease;
 }
 
@@ -186,7 +180,7 @@ a {
 
 /* AVATAR */
 .hero-avatar-card {
-  flex: 0 1 220px;
+  flex: 0 1 280px; /* larger image */
   position: relative;
   border-radius: 20px;
   overflow: hidden;
@@ -201,7 +195,7 @@ a {
 }
 
 .hero-avatar-card:hover img {
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
 /* NEON SHAPES */
@@ -214,13 +208,13 @@ a {
   animation: float 6s ease-in-out infinite;
 }
 
-.shape1 { width: 60px; height: 60px; background: #ff4d6d; top: -10px; left: 10%; }
-.shape2 { width: 90px; height: 90px; background: #ffb3c6; bottom: 10%; right: 15%; }
-.shape3 { width: 50px; height: 50px; background: #ff99a0; top: 25%; right: 25%; }
+.shape1 { width: 50px; height: 50px; background: #ff4d6d; top: 0; left: 10%; }
+.shape2 { width: 70px; height: 70px; background: #ffb3c6; bottom: 5%; right: 15%; }
+.shape3 { width: 40px; height: 40px; background: #ff99a0; top: 20%; right: 25%; }
 
 @keyframes float {
   0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-15px) rotate(10deg); }
+  50% { transform: translateY(-10px) rotate(10deg); }
 }
 
 /* RESPONSIVE */
@@ -232,26 +226,27 @@ a {
 
   .hero-avatar-card {
     margin-bottom: 2rem;
-    flex: 0 1 180px;
+    flex: 0 1 220px;
+  }
+
+  .hero-text-card h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-text-card h2 {
+    font-size: 1.2rem;
   }
 
   .hero-text-card p {
     max-width: 100%;
   }
 
-  .hero-text-card h1 {
-    font-size: 2rem;
-  }
-
-  .hero-text-card h2 {
-    font-size: 1.15rem;
-  }
-
   .hero-links .btn {
-    font-size: 0.9rem;
-    padding: 0.55rem 1.5rem;
+    font-size: 0.95rem;
+    padding: 0.6rem 1.5rem;
   }
 }
+
 
 /* PANEL TITLES */
 .panel-title {
