@@ -85,86 +85,76 @@ a {
 }
 
 /* HERO */
+/* HERO */
 .hero {
-  background: linear-gradient(135deg, #800020, #a00040);
+  background: #800020; /* solid, strong color */
   color: #fff;
-  padding: 4rem 2rem;
+  padding: 6rem 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 50px;
+  background: #fff;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  opacity: 0.1;
+  z-index: 0;
 }
 
-.hero-grid {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  max-width: 1000px;
-  width: 100%;
-  flex-wrap: wrap; /* responsive */
-}
-
-/* Avatar */
-.hero-card .avatar {
+.hero .avatar {
   width: 180px;
   height: 180px;
-  border-radius: 20px; /* rounded rectangle */
+  border-radius: 15px; /* rectangular with soft corners */
   overflow: hidden;
-  border: 4px solid rgba(255,255,255,0.8);
-  flex-shrink: 0;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease;
+  margin: 0 auto 2rem;
+  border: 3px solid rgba(255,255,255,0.8);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 
-.hero-card .avatar img {
+.hero .avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.hero-card .avatar:hover {
-  transform: scale(1.05);
-}
-
-/* Text Content */
-.hero-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 600px;
-  text-align: left;
-}
-
 .hero-title {
   font-size: 2.5rem;
+  font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
 .hero-sub {
   font-size: 1.2rem;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
+  font-weight: 400;
+  margin-bottom: 0.3rem;
   color: #f0c0d0;
 }
 
 .hero-meta {
   font-size: 1rem;
-  color: #f5d4da;
+  font-weight: 300;
   margin-bottom: 2rem;
+  color: #f5d4da;
 }
 
-/* Buttons */
 .hero-links .btn {
   display: inline-block;
-  padding: 0.7rem 1.8rem;
-  margin: 0.5rem 0.5rem 0 0;
-  border-radius: 30px;
+  padding: 0.6rem 1.5rem;
+  margin: 0.5rem;
+  border-radius: 25px;
   font-weight: 500;
-  transition: all 0.3s;
   background: #fff;
   color: #800020;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s;
 }
 
 .hero-links .btn:hover {
@@ -185,12 +175,18 @@ a {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .hero-grid {
-    flex-direction: column;
-    text-align: center;
+  .hero-title {
+    font-size: 2rem;
   }
-  .hero-card {
-    text-align: center;
+  .hero-sub {
+    font-size: 1rem;
+  }
+  .hero-meta {
+    font-size: 0.9rem;
+  }
+  .hero .avatar {
+    width: 150px;
+    height: 150px;
   }
 }
 
