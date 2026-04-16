@@ -298,24 +298,3 @@ document.querySelectorAll('.project-item').forEach(card => {
   draw();
 })();
 
-// Text Scramble on Section Titles
-const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&';
-function scramble(el) {
-  const original = el.textContent;
-  let iteration = 0;
-  const interval = setInterval(() => {
-    el.textContent = original.split('').map((char, i) => {
-      if (char === ' ') return ' ';
-      if (i < iteration) return original[i];
-      return chars[Math.floor(Math.random() * chars.length)];
-    }).join('');
-    if (iteration >= original.length) clearInterval(interval);
-    iteration += 0.5;
-  }, 30);
-}
-const scrambleObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { scramble(e.target); scrambleObs.unobserve(e.target); }
-  });
-}, { threshold: 0.5 });
-document.querySelectorAll('.section-title').forEach(el => scrambleObs.observe(el));
