@@ -257,9 +257,53 @@ document.querySelectorAll('.project-item').forEach(card => {
   chatSend.addEventListener('click', sendMessage);
   chatInput.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); } });
 
+  // Unread badge
+  let unreadCount = 0;
+  const badge = document.createElement('div');
+  badge.id = 'chat-badge';
+  badge.style.cssText = 'position:absolute;top:-6px;right:-6px;background:var(--accent2,#b83050);color:#fff;border-radius:50%;width:20px;height:20px;font-size:.7rem;font-weight:700;display:none;align-items:center;justify-content:center;font-family:var(--ff-body);pointer-events:none;border:2px solid var(--bg,#0f0e0d);';
+  bubble.style.position = 'relative';
+  bubble.appendChild(badge);
+
+  function showBadge(count) {
+    badge.textContent = count > 9 ? '9+' : count;
+    badge.style.display = 'flex';
+  }
+  function clearBadge() {
+    unreadCount = 0;
+    badge.style.display = 'none';
+  }
+
+  // Request browser notification permission
+  if ('Notification' in window && Notification.permission === 'default') {
+    Notification.requestPermission();
+  }
+
+  function sendBrowserNotification(text) {
+    if ('Notification' in window && Notification.permission === 'granted' && document.hidden) {
+      const n = new Notification('Nare replied 💬', {
+        body: text.length > 80 ? text.slice(0, 80) + '...' : text,
+        icon: 'https://i.imgur.com/pXMb56j.jpeg',
+      });
+      n.onclick = () => { window.focus(); openPanel(); n.close(); };
+    }
+  }
+
   socket.on('owner_reply', data => {
     addMsg(messages, data.text, 'owner', data.timestamp);
-    if (!isOpen) bubble.classList.add('has-reply');
+    if (!isOpen) {
+      bubble.classList.add('has-reply');
+      unreadCount++;
+      showBadge(unreadCount);
+      sendBrowserNotification(data.text);
+    }
+  });
+
+  // Clear badge when panel opens
+  const origOpen = openPanel;
+  bubble.removeEventListener('click', () => isOpen ? closePanel() : openPanel());
+  bubble.addEventListener('click', () => {
+    if (isOpen) { closePanel(); } else { openPanel(); clearBadge(); }
   });
   socket.on('disconnect', () => { chatSend.disabled = true; });
   socket.on('connect',    () => { chatSend.disabled = false; });
