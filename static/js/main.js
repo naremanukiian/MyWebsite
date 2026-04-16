@@ -117,6 +117,20 @@ if (typeEl) {
   setTimeout(type, 1800);
 }
 
+// Tilt Effect on Project Cards
+document.querySelectorAll('.project-item').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    card.style.transform = 'perspective(800px) rotateY('+(x*8)+'deg) rotateX('+(-y*8)+'deg) translateY(-4px)';
+    card.style.transition = 'transform 0.1s ease';
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+    card.style.transition = 'transform 0.4s ease';
+  });
+});
 
 // ================================================================
 //  SMART LIVE CHAT
@@ -250,4 +264,36 @@ if (typeEl) {
   socket.on('disconnect', () => { chatSend.disabled = true; });
   socket.on('connect',    () => { chatSend.disabled = false; });
 
+})();
+
+// Particle Network
+(function() {
+  const canvas = document.getElementById('particle-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [];
+  let mouseX = -9999, mouseY = -9999;
+  function resize() { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+  document.addEventListener('mousemove', e => { const r = canvas.getBoundingClientRect(); mouseX = e.clientX - r.left; mouseY = e.clientY - r.top; });
+  for (let i = 0; i < 80; i++) particles.push({ x: Math.random() * window.innerWidth, y: Math.random() * 600, vx: (Math.random()-.5)*.4, vy: (Math.random()-.5)*.4, r: Math.random()*2+1 });
+  function draw() {
+    ctx.clearRect(0,0,W,H); resize();
+    particles.forEach(p => {
+      const dx=p.x-mouseX, dy=p.y-mouseY, dist=Math.sqrt(dx*dx+dy*dy);
+      if(dist<120){p.vx+=(dx/dist)*.3;p.vy+=(dy/dist)*.3;}
+      const spd=Math.sqrt(p.vx*p.vx+p.vy*p.vy);
+      if(spd>2){p.vx=(p.vx/spd)*2;p.vy=(p.vy/spd)*2;}
+      p.vx*=.99;p.vy*=.99;p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(201,169,110,0.7)';ctx.fill();
+    });
+    for(let i=0;i<particles.length;i++)for(let j=i+1;j<particles.length;j++){
+      const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<120){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle='rgba(201,169,110,'+(1-d/120)*.3+')';ctx.lineWidth=.5;ctx.stroke();}
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
 })();
