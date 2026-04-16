@@ -1,0 +1,21 @@
+[Unit]
+Description=Nare Portfolio Flask App
+After=network.target
+
+[Service]
+User=www-data
+WorkingDirectory=/var/www/nare-portfolio
+Environment="SECRET_KEY=replace-with-a-long-random-string"
+Environment="TELEGRAM_BOT_TOKEN=your_bot_token_here"
+Environment="TELEGRAM_CHAT_ID=your_personal_chat_id_here"
+ExecStart=/var/www/nare-portfolio/venv/bin/gunicorn \
+    --worker-class eventlet \
+    --workers 1 \
+    --bind 127.0.0.1:5000 \
+    --timeout 120 \
+    "app:app"
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
