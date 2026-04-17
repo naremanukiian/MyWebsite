@@ -14,12 +14,13 @@ TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 TELEGRAM_CHAT_ID   = os.environ.get("TELEGRAM_CHAT_ID", "")
 
 # Maps Telegram message_id → visitor socket session_id
-pending_replies = {}
+# We keep ALL message_ids for a session so any reply in the thread works
+pending_replies = {}   # tg_msg_id -> sid
+session_tg_ids  = {}   # sid -> list of tg_msg_ids (so we can reply to any)
 last_update_id  = 0
 
 
-# ── Telegram polling (works on localhost, no webhook needed) ───────
-
+# ── Telegram polling ───────────────────────────────────────────────
 def tg_poll():
     global last_update_id
     while True:
@@ -42,30 +43,40 @@ def tg_poll():
                     text     = msg.get("text", "").strip()
                     if reply_to and text:
                         orig_id = reply_to.get("message_id")
+                        # Try direct lookup first
                         sid = pending_replies.get(orig_id)
                         if sid:
                             socketio.emit("owner_reply", {
                                 "text": text,
                                 "timestamp": datetime.utcnow().strftime("%H:%M"),
                             }, to=sid)
-                            del pending_replies[orig_id]
+                        # Also check if any session has this msg_id in their thread
+                        else:
+                            for s, ids in session_tg_ids.items():
+                                if orig_id in ids:
+                                    socketio.emit("owner_reply", {
+                                        "text": text,
+                                        "timestamp": datetime.utcnow().strftime("%H:%M"),
+                                    }, to=s)
+                                    break
         except Exception:
             pass
         time.sleep(2)
 
-# Start polling thread
 threading.Thread(target=tg_poll, daemon=True).start()
 
 
 # ── Routes ─────────────────────────────────────────────────────────
-
 @app.route("/")
 def index():
     return render_template("index.html")
 
+@app.route("/health")
+def health():
+    return {"status": "ok"}
+
 
 # ── Socket.IO ──────────────────────────────────────────────────────
-
 @socketio.on("visitor_message")
 def handle_visitor_message(data):
     text      = data.get("text", "").strip()
@@ -78,12 +89,16 @@ def handle_visitor_message(data):
         return
 
     topic_labels = {
+        "about":       "👩‍💻 About Nare",
+        "education":   "🎓 Education",
+        "experience":  "💼 Experience",
+        "projects":    "💡 Projects",
+        "skills":      "⚙️ Skills",
+        "other":       "💬 Something Else",
         "collaboration": "🤝 Collaboration",
-        "projects":      "💡 My Projects",
-        "hiring":        "💼 Hiring / Internship",
-        "actuarial":     "📊 Actuarial Work",
-        "ai":            "🤖 AI & Data Science",
-        "other":         "💬 Something Else",
+        "hiring":      "💼 Hiring / Internship",
+        "actuarial":   "📊 Actuarial Work",
+        "ai":          "🤖 AI & Data Science",
     }
     topic_label = topic_labels.get(topic, topic)
 
@@ -108,12 +123,26 @@ def handle_visitor_message(data):
         )
         if resp.ok:
             tg_message_id = resp.json()["result"]["message_id"]
+            # Store mapping both ways
             pending_replies[tg_message_id] = sid
+            if sid not in session_tg_ids:
+                session_tg_ids[sid] = []
+            session_tg_ids[sid].append(tg_message_id)
             emit("message_sent", {"status": "delivered"})
         else:
             emit("message_sent", {"status": "error"})
     except Exception:
         emit("message_sent", {"status": "error"})
+
+
+@socketio.on("disconnect")
+def handle_disconnect():
+    # Clean up session data on disconnect
+    sid = request.sid
+    if sid in session_tg_ids:
+        for tg_id in session_tg_ids[sid]:
+            pending_replies.pop(tg_id, None)
+        del session_tg_ids[sid]
 
 
 if __name__ == "__main__":
