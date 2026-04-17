@@ -69,69 +69,6 @@ if (skillsEls.length) {
   skillsEls.forEach(el => skillObs.observe(el));
 }
 
-// Number Counter Animation
-function animateCounter(el, target, duration) {
-  let startTime = null;
-  const suffix = el.dataset.suffix || '';
-  const step = (timestamp) => {
-    if (!startTime) startTime = timestamp;
-    const progress = Math.min((timestamp - startTime) / duration, 1);
-    el.textContent = Math.floor(progress * target) + suffix;
-    if (progress < 1) requestAnimationFrame(step);
-    else el.textContent = target + suffix;
-  };
-  requestAnimationFrame(step);
-}
-const statsObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.querySelectorAll('.stat-num').forEach(el => {
-        const raw = el.textContent.trim();
-        const num = parseFloat(raw.replace(/[^0-9.]/g, ''));
-        el.dataset.suffix = raw.replace(/[0-9.]/g, '');
-        el.textContent = '0' + el.dataset.suffix;
-        animateCounter(el, num, 1500);
-      });
-      statsObs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.5 });
-document.querySelectorAll('.hero-stats').forEach(el => statsObs.observe(el));
-
-// Typewriter Effect
-const typeEl = document.querySelector('.hero-eyebrow');
-if (typeEl) {
-  const fullText = typeEl.textContent.trim();
-  typeEl.textContent = '';
-  typeEl.style.borderRight = '2px solid var(--gold)';
-  typeEl.style.paddingRight = '4px';
-  let i = 0;
-  const type = () => {
-    if (i < fullText.length) {
-      typeEl.textContent += fullText[i]; i++;
-      setTimeout(type, 45);
-    } else {
-      setTimeout(() => { typeEl.style.borderRight='none'; typeEl.style.paddingRight='0'; }, 800);
-    }
-  };
-  setTimeout(type, 1800);
-}
-
-// Tilt Effect on Project Cards
-document.querySelectorAll('.project-item').forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const rect = card.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    card.style.transform = 'perspective(800px) rotateY('+(x*8)+'deg) rotateX('+(-y*8)+'deg) translateY(-4px)';
-    card.style.transition = 'transform 0.1s ease';
-  });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
-    card.style.transition = 'transform 0.4s ease';
-  });
-});
-
 // ================================================================
 //  SMART LIVE CHAT
 // ================================================================
@@ -226,7 +163,7 @@ document.querySelectorAll('.project-item').forEach(card => {
     panel.classList.remove('open');
     panel.setAttribute('aria-hidden', 'true');
   }
-  bubble.addEventListener('click', () => isOpen ? closePanel() : openPanel());
+  bubble.addEventListener('click', () => { requestNotifPermission(); isOpen ? closePanel() : openPanel(); });
   closeBtn.addEventListener('click', closePanel);
 
   function showStep(from, to) { from.classList.remove('active'); to.classList.add('active'); }
@@ -373,13 +310,12 @@ document.querySelectorAll('.project-item').forEach(card => {
   chatSend.addEventListener('click', sendMessage);
   chatInput.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); } });
 
-  // Unread badge
+  // Unread badge — fixed position so it doesn't affect bubble layout
   let unreadCount = 0;
   const badge = document.createElement('div');
   badge.id = 'chat-badge';
-  badge.style.cssText = 'position:absolute;top:-6px;right:-6px;background:var(--accent2,#b83050);color:#fff;border-radius:50%;width:20px;height:20px;font-size:.7rem;font-weight:700;display:none;align-items:center;justify-content:center;font-family:var(--ff-body);pointer-events:none;border:2px solid var(--bg,#0f0e0d);';
-  bubble.style.position = 'relative';
-  bubble.appendChild(badge);
+  badge.style.cssText = 'position:fixed;bottom:4.2rem;right:1.6rem;background:#b83050;color:#fff;border-radius:50%;width:20px;height:20px;font-size:.7rem;font-weight:700;display:none;align-items:center;justify-content:center;font-family:var(--ff-body);pointer-events:none;z-index:201;border:2px solid #0f0e0d;';
+  document.body.appendChild(badge);
 
   function showBadge(count) {
     badge.textContent = count > 9 ? '9+' : count;
@@ -390,25 +326,31 @@ document.querySelectorAll('.project-item').forEach(card => {
     badge.style.display = 'none';
   }
 
-  // Request browser notification permission
-  if ('Notification' in window && Notification.permission === 'default') {
-    Notification.requestPermission();
+  // Request notification permission on first chat open
+  function requestNotifPermission() {
+    if ('Notification' in window && Notification.permission === 'default') {
+      Notification.requestPermission();
+    }
   }
 
   function sendBrowserNotification(text) {
-    if ('Notification' in window && Notification.permission === 'granted' && document.hidden) {
-      const n = new Notification('Nare replied 💬', {
+    if (!('Notification' in window)) return;
+    if (Notification.permission === 'granted') {
+      const n = new Notification('Nare Manukyan replied 💬', {
         body: text.length > 80 ? text.slice(0, 80) + '...' : text,
         icon: 'https://i.imgur.com/pXMb56j.jpeg',
+        tag: 'nare-reply',
       });
       n.onclick = () => { window.focus(); openPanel(); n.close(); };
     }
   }
 
   socket.on('owner_reply', data => {
-    if (step3.classList.contains('active')) {
-      addMsg(messages, data.text, 'owner', data.timestamp);
+    // Always append to messages — show chat if not on step3 yet
+    if (!step3.classList.contains('active')) {
+      showStep(step1.classList.contains('active') ? step1 : step2, step3);
     }
+    addMsg(messages, data.text, 'owner', data.timestamp);
     if (!isOpen) {
       bubble.classList.add('has-reply');
       unreadCount++;
