@@ -2,6 +2,9 @@ import os
 import requests
 import threading
 import time
+import eventlet
+eventlet.monkey_patch()
+
 from flask import Flask, render_template, request
 from flask_socketio import SocketIO, emit
 from datetime import datetime
@@ -13,14 +16,13 @@ socketio = SocketIO(app, cors_allowed_origins="*", async_mode="eventlet")
 TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 TELEGRAM_CHAT_ID   = os.environ.get("TELEGRAM_CHAT_ID", "")
 
-# Maps Telegram message_id → visitor socket session_id
-# We keep ALL message_ids for a session so any reply in the thread works
-pending_replies = {}   # tg_msg_id -> sid
-session_tg_ids  = {}   # sid -> list of tg_msg_ids (so we can reply to any)
+# tg_message_id -> socket session_id
+pending_replies = {}
+# sid -> [tg_message_id, ...]
+session_tg_ids  = {}
 last_update_id  = 0
 
 
-# ── Telegram polling ───────────────────────────────────────────────
 def tg_poll():
     global last_update_id
     while True:
@@ -36,37 +38,39 @@ def tg_poll():
             if r.ok:
                 for update in r.json().get("result", []):
                     last_update_id = update["update_id"]
-                    msg = update.get("message", {})
-                    if str(msg.get("chat", {}).get("id")) != str(TELEGRAM_CHAT_ID):
+                    msg      = update.get("message", {})
+                    chat_id  = str(msg.get("chat", {}).get("id", ""))
+                    if chat_id != str(TELEGRAM_CHAT_ID):
                         continue
                     reply_to = msg.get("reply_to_message")
                     text     = msg.get("text", "").strip()
-                    if reply_to and text:
-                        orig_id = reply_to.get("message_id")
-                        # Try direct lookup first
-                        sid = pending_replies.get(orig_id)
-                        if sid:
-                            socketio.emit("owner_reply", {
-                                "text": text,
-                                "timestamp": datetime.utcnow().strftime("%H:%M"),
-                            }, to=sid)
-                        # Also check if any session has this msg_id in their thread
-                        else:
-                            for s, ids in session_tg_ids.items():
-                                if orig_id in ids:
-                                    socketio.emit("owner_reply", {
-                                        "text": text,
-                                        "timestamp": datetime.utcnow().strftime("%H:%M"),
-                                    }, to=s)
-                                    break
-        except Exception:
-            pass
+                    if not (reply_to and text):
+                        continue
+                    orig_id = reply_to.get("message_id")
+                    ts = datetime.utcnow().strftime("%H:%M")
+
+                    # Find which sid to deliver to
+                    sid = pending_replies.get(orig_id)
+                    if not sid:
+                        for s, ids in list(session_tg_ids.items()):
+                            if orig_id in ids:
+                                sid = s
+                                break
+
+                    if sid:
+                        socketio.emit(
+                            "owner_reply",
+                            {"text": text, "timestamp": ts},
+                            room=sid
+                        )
+        except Exception as e:
+            print(f"[tg_poll error] {e}")
         time.sleep(2)
+
 
 threading.Thread(target=tg_poll, daemon=True).start()
 
 
-# ── Routes ─────────────────────────────────────────────────────────
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -76,7 +80,6 @@ def health():
     return {"status": "ok"}
 
 
-# ── Socket.IO ──────────────────────────────────────────────────────
 @socketio.on("visitor_message")
 def handle_visitor_message(data):
     text      = data.get("text", "").strip()
@@ -89,16 +92,12 @@ def handle_visitor_message(data):
         return
 
     topic_labels = {
-        "about":       "👩‍💻 About Nare",
-        "education":   "🎓 Education",
-        "experience":  "💼 Experience",
-        "projects":    "💡 Projects",
-        "skills":      "⚙️ Skills",
-        "other":       "💬 Something Else",
-        "collaboration": "🤝 Collaboration",
-        "hiring":      "💼 Hiring / Internship",
-        "actuarial":   "📊 Actuarial Work",
-        "ai":          "🤖 AI & Data Science",
+        "about":      "👩‍💻 About Nare",
+        "education":  "🎓 Education",
+        "experience": "💼 Experience",
+        "projects":   "💡 Projects",
+        "skills":     "⚙️ Skills",
+        "other":      "💬 Something Else",
     }
     topic_label = topic_labels.get(topic, topic)
 
@@ -114,30 +113,25 @@ def handle_visitor_message(data):
     try:
         resp = requests.post(
             f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage",
-            json={
-                "chat_id": TELEGRAM_CHAT_ID,
-                "text": tg_text,
-                "parse_mode": "Markdown",
-            },
+            json={"chat_id": TELEGRAM_CHAT_ID, "text": tg_text, "parse_mode": "Markdown"},
             timeout=5,
         )
         if resp.ok:
-            tg_message_id = resp.json()["result"]["message_id"]
-            # Store mapping both ways
-            pending_replies[tg_message_id] = sid
+            tg_msg_id = resp.json()["result"]["message_id"]
+            pending_replies[tg_msg_id] = sid
             if sid not in session_tg_ids:
                 session_tg_ids[sid] = []
-            session_tg_ids[sid].append(tg_message_id)
+            session_tg_ids[sid].append(tg_msg_id)
             emit("message_sent", {"status": "delivered"})
         else:
             emit("message_sent", {"status": "error"})
-    except Exception:
+    except Exception as e:
+        print(f"[send error] {e}")
         emit("message_sent", {"status": "error"})
 
 
 @socketio.on("disconnect")
 def handle_disconnect():
-    # Clean up session data on disconnect
     sid = request.sid
     if sid in session_tg_ids:
         for tg_id in session_tg_ids[sid]:
