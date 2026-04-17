@@ -117,6 +117,20 @@ if (typeEl) {
   setTimeout(type, 1800);
 }
 
+// Tilt Effect on Project Cards
+document.querySelectorAll('.project-item').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    card.style.transform = 'perspective(800px) rotateY('+(x*8)+'deg) rotateX('+(-y*8)+'deg) translateY(-4px)';
+    card.style.transition = 'transform 0.1s ease';
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+    card.style.transition = 'transform 0.4s ease';
+  });
+});
 
 // ================================================================
 //  SMART LIVE CHAT
@@ -143,12 +157,59 @@ if (typeEl) {
 
   let isOpen = false, userName = '', userTopic = '';
 
-  const AUTO_REPLIES = {
-    collaboration: "Thanks for reaching out about collaboration! I'm always open to interesting projects in data science or actuarial analytics. Tell me more and I'll get back to you personally shortly.",
-    projects:      "Glad you're interested in my work! I've built projects in IoT air monitoring, AI traffic management, ML pipelines, and database systems. Any specific one you'd like to know more about?",
-    hiring:        "Thank you for considering me! I'm currently a Junior Actuarial Analyst at Liga Insurance while completing my double degree. Open to internships and roles in AI, data science, or actuarial analytics.",
-    actuarial:     "Actuarial work is my passion! I work with risk modeling, predictive analytics, and statistical validation at Liga Insurance. What aspect are you curious about?",
-    ai:            "AI and data science are at the core of everything I do! From ML pipelines to smart traffic systems, I love this space. What would you like to explore?",
+  const KB = {
+    about: {
+      intro: "Here's what people usually ask about me:",
+      qs: [
+        { q: "Who is Nare Manukyan?", a: "I'm a third-year Computer Science and Applied Mathematics student with a deep interest in AI, data science, and actuarial analysis. I work as a Junior Actuarial Analyst at Liga Insurance and I'm passionate about turning complex data into actionable insights." },
+        { q: "What are your main interests?", a: "Predictive modeling, risk analysis, machine learning, and actuarial science. I love exploring complex datasets and applying mathematical concepts to solve real-world problems." },
+        { q: "What languages do you speak?", a: "I speak four languages: Armenian (native), Russian (fluent), English (upper intermediate), and French (intermediate)." },
+        { q: "Are you available for projects?", a: "Yes! I'm open to collaborations, internships, and interesting projects — especially in AI, data science, or actuarial analytics." }
+      ]
+    },
+    education: {
+      intro: "Here's what people ask about my education:",
+      qs: [
+        { q: "Where are you currently studying?", a: "I'm enrolled in two programs simultaneously: Computer Science & Applied Mathematics at the French University in Armenia (2023–2027), and the Faculty of Science & Engineering at University of Toulouse III – Paul Sabatier (2024–2027)." },
+        { q: "What is your previous education?", a: "I completed a Diploma in Insurance Studies at Yerevan State Humanitarian College (2020–2023), which gave me a strong foundation in insurance operations and actuarial concepts." },
+        { q: "Why two degrees at the same time?", a: "The combination of Computer Science and Insurance/Mathematics creates the perfect profile for actuarial data science — I can apply both technical and analytical skills to real-world problems." }
+      ]
+    },
+    experience: {
+      intro: "Here's what people ask about my work experience:",
+      qs: [
+        { q: "What is your current job?", a: "I'm a Junior Actuarial Analyst at Liga Insurance (September 2025 – present). I perform actuarial data analysis, build and validate risk models, and develop predictive analytics to support strategic business decisions." },
+        { q: "Have you worked in QA?", a: "Yes! In July 2025 I worked as a QA Engineer Intern at Liga Insurance, conducting API testing, functional validation, and defect reporting." },
+        { q: "What other experience do you have?", a: "In 2023 I worked at Ingo as an Accounts Receivable Representative. In 2022 I was an Educational Intern at Liga Insurance, contributing to data collection and reporting." },
+        { q: "What awards have you received?", a: "I was awarded the LIGA Scholarship (2024–2025) for academic excellence and outstanding performance in insurance and IT-related fields." }
+      ]
+    },
+    projects: {
+      intro: "Here's what people ask about my projects:",
+      qs: [
+        { q: "Tell me about the IoT Air Monitoring project", a: "A hardware + software project at Tumo Labs (ClimateNet). I design sensor-integrated systems that monitor environmental air quality in real time and visualize pollution data." },
+        { q: "What is the RideSharingDB System?", a: "A complete SQL Server database (1,279 lines) for a ride-sharing platform — 8 tables, 7 triggers, 8 stored procedures, 15 indexes, 30 relational algebra queries, and role-based access control. Includes a live interactive dashboard with 4 role-based views." },
+        { q: "Tell me about the Smart Traffic AI project", a: "I built predictive algorithms and simulations that optimize traffic signal timing using AI. Includes full data visualizations and a detailed analysis report." },
+        { q: "What is the Menu Analysis ML project?", a: "A complete ML pipeline on restaurant data from Degusto and ArtLunch — TF-IDF feature engineering, clustering, classification, and regression evaluated with accuracy, F1-score, and MSE." }
+      ]
+    },
+    skills: {
+      intro: "Here's what people ask about my technical skills:",
+      qs: [
+        { q: "What programming languages do you know?", a: "Python (75%), C# (65%), C (65%), Shell & CLI (65%), Git & GitHub (70%), and C++ (45%). Python is my primary language for data science and ML work." },
+        { q: "What are your analytics and AI skills?", a: "Linear Algebra & Math (85%), Statistical Analysis (78%), Predictive Analytics (75%), Data Analysis (75%), Data Visualization (75%), and Machine Learning (65%)." },
+        { q: "What tools and frameworks do you use?", a: "Python (pandas, scikit-learn, NumPy, matplotlib), SQL Server, Excel, Git, and Shell/CLI. For ML I use scikit-learn and have experience with OpenAI APIs and TF-IDF pipelines." },
+        { q: "What is your strongest skill?", a: "Linear Algebra & Mathematics at 85%, followed by Statistical Analysis at 78%. These form the foundation of all my actuarial and data science work." }
+      ]
+    },
+    other: { intro: null, qs: [] }
+  };
+
+  // Topic label map for KB lookup
+  const TOPIC_KB_MAP = {
+    collaboration: 'other', projects: 'projects', hiring: 'other',
+    actuarial: 'other', ai: 'skills', other: 'other',
+    about: 'about', education: 'education', experience: 'experience', skills: 'skills'
   };
 
   function openPanel() {
@@ -207,20 +268,88 @@ if (typeEl) {
   nameSub.addEventListener('click', submitName);
   nameInput.addEventListener('keydown', e => { if (e.key === 'Enter') submitName(); });
 
+  // Helpers
+  function typingDots() {
+    const d = document.createElement('div');
+    d.className = 'chat-typing';
+    d.innerHTML = '<span></span><span></span><span></span>';
+    return d;
+  }
+  function showAfterTyping(node, delay) {
+    const t = typingDots();
+    messages.appendChild(t);
+    messages.scrollTop = messages.scrollHeight;
+    setTimeout(() => { t.remove(); messages.appendChild(node); messages.scrollTop = messages.scrollHeight; }, delay);
+  }
+
   document.querySelectorAll('.chat-topic').forEach(btn => {
     btn.addEventListener('click', () => {
       userTopic = btn.dataset.topic;
       showStep(step2, step3);
+      messages.innerHTML = '';
+
       const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-      addMsg(messages, btn.textContent, 'visitor', now);
-      if (userTopic === 'other') {
-        setTimeout(() => { addMsg(messages, "Of course! Type your message below and I'll reply personally.", 'owner'); chatInput.focus(); }, 400);
-      } else {
+      addMsg(messages, btn.textContent.trim(), 'visitor', now);
+
+      // Map topic to KB key
+      const kbMap = { projects: 'projects', skills: 'skills', about: 'about', education: 'education', experience: 'experience' };
+      const kbKey = kbMap[userTopic] || null;
+      const data = kbKey ? KB[kbKey] : null;
+
+      if (!data || data.qs.length === 0) {
+        // Free message flow (collaboration, hiring, actuarial, ai, other)
+        const AUTO = {
+          collaboration: "Thanks for reaching out! I'm always open to interesting projects in data science or actuarial analytics. Tell me more below and I'll get back to you personally.",
+          hiring: "Thank you for considering me! I'm open to internships and roles in AI, data science, or actuarial analytics. Drop me a message below!",
+          actuarial: "Actuarial work is my passion! I work with risk modeling, predictive analytics, and statistical validation at Liga Insurance. Ask me anything below.",
+          ai: "AI and data science are at the core of everything I do! From ML pipelines to smart traffic systems — ask me anything below.",
+          other: "Of course! Type your message below and I'll receive it directly and reply here personally."
+        };
+        const reply = AUTO[userTopic] || AUTO.other;
         setTimeout(() => {
-          addMsg(messages, AUTO_REPLIES[userTopic], 'owner');
-          setTimeout(() => { addMsg(messages, "Feel free to send any follow-up message!", 'owner'); chatInput.focus(); }, 600);
-        }, 500);
+          const b = document.createElement('div'); b.className = 'msg msg--owner';
+          const p = document.createElement('p'); p.textContent = reply; b.appendChild(p);
+          showAfterTyping(b, 600);
+          setTimeout(() => chatInput.focus(), 800);
+        }, 300);
+        return;
       }
+
+      // Sub-questions flow
+      setTimeout(() => {
+        const introB = document.createElement('div'); introB.className = 'msg msg--owner';
+        const introP = document.createElement('p'); introP.textContent = data.intro; introB.appendChild(introP);
+        showAfterTyping(introB, 500);
+
+        setTimeout(() => {
+          const subqs = document.createElement('div');
+          subqs.className = 'chat-subqs';
+          data.qs.forEach(item => {
+            const b = document.createElement('button');
+            b.className = 'chat-subq';
+            b.textContent = item.q;
+            b.addEventListener('click', () => {
+              addMsg(messages, item.q, 'visitor');
+              b.disabled = true; b.style.opacity = '0.4';
+              const ans = document.createElement('div'); ans.className = 'msg msg--owner';
+              const ap = document.createElement('p'); ap.textContent = item.a; ans.appendChild(ap);
+              showAfterTyping(ans, 900);
+            });
+            subqs.appendChild(b);
+          });
+          messages.appendChild(subqs);
+          messages.scrollTop = messages.scrollHeight;
+
+          setTimeout(() => {
+            const div = document.createElement('div');
+            div.className = 'chat-divider';
+            div.textContent = "Or send me a message directly — I'll reply via Telegram:";
+            messages.appendChild(div);
+            messages.scrollTop = messages.scrollHeight;
+            chatInput.focus();
+          }, 200);
+        }, 1100);
+      }, 300);
     });
   });
 
@@ -243,9 +372,53 @@ if (typeEl) {
   chatSend.addEventListener('click', sendMessage);
   chatInput.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); } });
 
+  // Unread badge
+  let unreadCount = 0;
+  const badge = document.createElement('div');
+  badge.id = 'chat-badge';
+  badge.style.cssText = 'position:absolute;top:-6px;right:-6px;background:var(--accent2,#b83050);color:#fff;border-radius:50%;width:20px;height:20px;font-size:.7rem;font-weight:700;display:none;align-items:center;justify-content:center;font-family:var(--ff-body);pointer-events:none;border:2px solid var(--bg,#0f0e0d);';
+  bubble.style.position = 'relative';
+  bubble.appendChild(badge);
+
+  function showBadge(count) {
+    badge.textContent = count > 9 ? '9+' : count;
+    badge.style.display = 'flex';
+  }
+  function clearBadge() {
+    unreadCount = 0;
+    badge.style.display = 'none';
+  }
+
+  // Request browser notification permission
+  if ('Notification' in window && Notification.permission === 'default') {
+    Notification.requestPermission();
+  }
+
+  function sendBrowserNotification(text) {
+    if ('Notification' in window && Notification.permission === 'granted' && document.hidden) {
+      const n = new Notification('Nare replied 💬', {
+        body: text.length > 80 ? text.slice(0, 80) + '...' : text,
+        icon: 'https://i.imgur.com/pXMb56j.jpeg',
+      });
+      n.onclick = () => { window.focus(); openPanel(); n.close(); };
+    }
+  }
+
   socket.on('owner_reply', data => {
     addMsg(messages, data.text, 'owner', data.timestamp);
-    if (!isOpen) bubble.classList.add('has-reply');
+    if (!isOpen) {
+      bubble.classList.add('has-reply');
+      unreadCount++;
+      showBadge(unreadCount);
+      sendBrowserNotification(data.text);
+    }
+  });
+
+  // Clear badge when panel opens
+  const origOpen = openPanel;
+  bubble.removeEventListener('click', () => isOpen ? closePanel() : openPanel());
+  bubble.addEventListener('click', () => {
+    if (isOpen) { closePanel(); } else { openPanel(); clearBadge(); }
   });
   socket.on('disconnect', () => { chatSend.disabled = true; });
   socket.on('connect',    () => { chatSend.disabled = false; });
