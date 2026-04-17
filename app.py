@@ -16,11 +16,11 @@ socketio = SocketIO(app, cors_allowed_origins="*", async_mode="eventlet")
 TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 TELEGRAM_CHAT_ID   = os.environ.get("TELEGRAM_CHAT_ID", "")
 
-# tg_message_id -> socket session_id
-pending_replies = {}
-# sid -> [tg_message_id, ...]
-session_tg_ids  = {}
-last_update_id  = 0
+# sid -> set of tg_message_ids sent by that visitor
+# This never gets deleted on first reply — visitor can receive many replies
+sid_to_tg_ids = {}   # sid -> set()
+tg_id_to_sid  = {}   # tg_msg_id -> sid
+last_update_id = 0
 
 
 def tg_poll():
@@ -38,31 +38,31 @@ def tg_poll():
             if r.ok:
                 for update in r.json().get("result", []):
                     last_update_id = update["update_id"]
-                    msg      = update.get("message", {})
-                    chat_id  = str(msg.get("chat", {}).get("id", ""))
+                    msg     = update.get("message", {})
+                    chat_id = str(msg.get("chat", {}).get("id", ""))
                     if chat_id != str(TELEGRAM_CHAT_ID):
                         continue
                     reply_to = msg.get("reply_to_message")
                     text     = msg.get("text", "").strip()
                     if not (reply_to and text):
                         continue
+
                     orig_id = reply_to.get("message_id")
                     ts = datetime.utcnow().strftime("%H:%M")
 
-                    # Find which sid to deliver to
-                    sid = pending_replies.get(orig_id)
-                    if not sid:
-                        for s, ids in list(session_tg_ids.items()):
-                            if orig_id in ids:
-                                sid = s
-                                break
-
+                    # Look up which visitor session this reply belongs to
+                    sid = tg_id_to_sid.get(orig_id)
                     if sid:
                         socketio.emit(
                             "owner_reply",
                             {"text": text, "timestamp": ts},
                             room=sid
                         )
+                        print(f"[reply] sent to sid={sid}")
+                    else:
+                        print(f"[reply] no sid found for tg_msg_id={orig_id}")
+                        print(f"[reply] known ids: {list(tg_id_to_sid.keys())}")
+
         except Exception as e:
             print(f"[tg_poll error] {e}")
         time.sleep(2)
@@ -118,25 +118,29 @@ def handle_visitor_message(data):
         )
         if resp.ok:
             tg_msg_id = resp.json()["result"]["message_id"]
-            pending_replies[tg_msg_id] = sid
-            if sid not in session_tg_ids:
-                session_tg_ids[sid] = []
-            session_tg_ids[sid].append(tg_msg_id)
+            # Map this tg message → visitor sid (never delete until disconnect)
+            tg_id_to_sid[tg_msg_id] = sid
+            if sid not in sid_to_tg_ids:
+                sid_to_tg_ids[sid] = set()
+            sid_to_tg_ids[sid].add(tg_msg_id)
+            print(f"[sent] tg_msg_id={tg_msg_id} -> sid={sid}")
             emit("message_sent", {"status": "delivered"})
         else:
+            print(f"[send error] {resp.text}")
             emit("message_sent", {"status": "error"})
     except Exception as e:
-        print(f"[send error] {e}")
+        print(f"[send exception] {e}")
         emit("message_sent", {"status": "error"})
 
 
 @socketio.on("disconnect")
 def handle_disconnect():
     sid = request.sid
-    if sid in session_tg_ids:
-        for tg_id in session_tg_ids[sid]:
-            pending_replies.pop(tg_id, None)
-        del session_tg_ids[sid]
+    if sid in sid_to_tg_ids:
+        for tg_id in sid_to_tg_ids[sid]:
+            tg_id_to_sid.pop(tg_id, None)
+        del sid_to_tg_ids[sid]
+    print(f"[disconnect] sid={sid}")
 
 
 if __name__ == "__main__":
