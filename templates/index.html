@@ -15,48 +15,64 @@
   <div class="cursor" id="cursor"></div>
   <div class="cursor-follower" id="cursorFollower"></div>
 
+  <!-- HEADER / NAV -->
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
       <a class="brand" href="#hero">
-        <div class="brand-avatar"><img src="https://i.imgur.com/pXMb56j.jpeg" alt="Nare Manukyan" /></div>
+        <div class="brand-avatar">
+          <img src="https://i.imgur.com/pXMb56j.jpeg" alt="Nare Manukyan" />
+        </div>
         <div class="brand-text">
           <div class="brand-name">Nare Manukyan</div>
           <div class="brand-sub">CS &amp; Applied Mathematics</div>
         </div>
       </a>
+
       <nav class="main-nav" aria-label="Main navigation" id="mainNav">
-        <a href="#about"        class="nav-link"><span>01</span>About</a>
-        <a href="#education"    class="nav-link"><span>02</span>Education</a>
-        <a href="#experience"   class="nav-link"><span>03</span>Experience</a>
-        <a href="#projects"     class="nav-link"><span>04</span>Projects</a>
-        <a href="#skills"       class="nav-link"><span>05</span>Skills</a>
-        <a href="#achievements" class="nav-link"><span>06</span>Achievements</a>
+        <a href="#about"        class="nav-link"><span>01</span><span data-i18n="nav_about">About</span></a>
+        <a href="#education"    class="nav-link"><span>02</span><span data-i18n="nav_education">Education</span></a>
+        <a href="#experience"   class="nav-link"><span>03</span><span data-i18n="nav_experience">Experience</span></a>
+        <a href="#projects"     class="nav-link"><span>04</span><span data-i18n="nav_projects">Projects</span></a>
+        <a href="#skills"       class="nav-link"><span>05</span><span data-i18n="nav_skills">Skills</span></a>
+        <a href="#achievements" class="nav-link"><span>06</span><span data-i18n="nav_achievements">Achievements</span></a>
       </nav>
+
       <button class="nav-toggle" aria-label="Open menu" id="navToggle">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
+  <!-- HERO -->
   <section id="hero" class="hero">
     <div class="hero-bg-text" aria-hidden="true">NARE</div>
+
     <div class="container hero-grid">
       <div class="hero-text" data-reveal>
-        <div class="hero-eyebrow">Junior Actuarial Analyst &amp; AI Enthusiast</div>
-        <h1 class="hero-name"><em>Nare</em><br>Manukyan</h1>
-        <p class="hero-desc">Turning data into actionable insights. Passionate about AI, predictive modeling, and actuarial analytics. I solve complex problems with clean code and creative thinking.</p>
+        <div class="hero-eyebrow" data-i18n="hero_eyebrow">Junior Actuarial Analyst &amp; AI Enthusiast</div>
+        <h1 class="hero-name">
+          <em>Nare</em><br>Manukyan
+        </h1>
+        <p class="hero-desc" data-i18n="hero_desc">Turning data into actionable insights. Passionate about AI, predictive modeling, and actuarial analytics. I solve complex problems with clean code and creative thinking.</p>
         <div class="hero-links">
-          <a href="#projects" class="btn-primary">View Projects
+          <a href="#projects" class="btn-primary">
+            <span data-i18n="hero_btn_projects">View Projects</span>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <a href="#contact" class="btn-ghost">Contact Me</a>
+          <a href="#contact" class="btn-ghost" data-i18n="hero_btn_contact">Contact Me</a>
         </div>
-        <div class="hero-scroll-hint"><span></span>Scroll</div>
+        <div class="hero-scroll-hint">
+          <span></span><span data-i18n="hero_scroll">Scroll</span>
+        </div>
       </div>
+
       <div class="hero-image-wrap" data-reveal-delay>
         <div class="hero-image-frame">
           <img src="https://i.imgur.com/pXMb56j.jpeg" alt="Nare Manukyan" class="hero-img" />
-          <div class="hero-image-badge"><div class="badge-dot"></div>Available for Projects</div>
+          <div class="hero-image-badge">
+            <div class="badge-dot"></div>
+            <span data-i18n="hero_badge">Available for Projects</span>
+          </div>
         </div>
         <div class="hero-deco-line"></div>
         <div class="hero-deco-dot d1"></div>
@@ -64,92 +80,147 @@
         <div class="hero-deco-dot d3"></div>
       </div>
     </div>
+
+    <!-- Stats bar -->
     <div class="hero-stats container">
-      <div class="stat-item"><div class="stat-num">2+</div><div class="stat-label">Years in Insurance</div></div>
+      <div class="stat-item">
+        <div class="stat-num">3+</div>
+        <div class="stat-label" data-i18n="stat_insurance">Years in Insurance</div>
+      </div>
       <div class="stat-divider"></div>
-      <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">Languages Spoken</div></div>
+      <div class="stat-item">
+        <div class="stat-num">4</div>
+        <div class="stat-label" data-i18n="stat_languages">Languages Spoken</div>
+      </div>
       <div class="stat-divider"></div>
-      <div class="stat-item"><div class="stat-num">3+</div><div class="stat-label">AI/Data<br>Projects</div></div>
+      <div class="stat-item">
+        <div class="stat-num">3+</div>
+        <div class="stat-label" data-i18n="stat_projects">AI/Data Projects</div>
+      </div>
       <div class="stat-divider"></div>
-      <div class="stat-item"><div class="stat-num">2x</div><div class="stat-label">Degree<br>Programs</div></div>
+      <div class="stat-item">
+        <div class="stat-num">2x</div>
+        <div class="stat-label" data-i18n="stat_degrees">Degree Programs</div>
+      </div>
     </div>
   </section>
 
   <main class="container main-content">
 
+    <!-- ABOUT -->
     <section id="about" class="section about-section" data-section>
-      <div class="section-label">About</div>
+      <div class="section-label" data-i18n="nav_about">About</div>
       <div class="about-grid">
-        <div class="about-heading"><h2>Who <em>Am I</em></h2></div>
+        <div class="about-heading">
+          <h2 data-i18n="about_title">Who <em>Am I</em></h2>
+        </div>
         <div class="about-body">
-          <p>I'm a third-year Computer Science and Applied Mathematics student with a deep interest in artificial intelligence, data science, and actuarial analysis. I enjoy exploring complex datasets, statistical modeling, and predictive analytics to uncover insights, understand risks, and support smarter, evidence-based decision-making.</p>
-          <p>Curious and analytical by nature, I am passionate about applying advanced mathematical concepts and cutting-edge technology to solve real-world problems, optimize processes, and create meaningful impact in both the tech and insurance industries.</p>
+          <p data-i18n="about_p1">I'm a third-year Computer Science and Applied Mathematics student with a deep interest in artificial intelligence, data science, and actuarial analysis. I enjoy exploring complex datasets, statistical modeling, and predictive analytics to uncover insights, understand risks, and support smarter, evidence-based decision-making.</p>
+          <p data-i18n="about_p2">Curious and analytical by nature, I am passionate about applying advanced mathematical concepts and cutting-edge technology to solve real-world problems, optimize processes, and create meaningful impact in both the tech and insurance industries.</p>
           <div class="about-tags">
-            <span>Predictive Modeling</span><span>Risk Analysis</span><span>Machine Learning</span><span>Actuarial Science</span>
+            <span data-i18n="tag_pm">Predictive Modeling</span>
+            <span data-i18n="tag_ra">Risk Analysis</span>
+            <span data-i18n="tag_ml">Machine Learning</span>
+            <span data-i18n="tag_as">Actuarial Science</span>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- EDUCATION -->
     <section id="education" class="section" data-section>
-      <div class="section-label">Education</div>
-      <h2 class="section-title">Academic <em>Background</em></h2>
+      <div class="section-label" data-i18n="nav_education">Education</div>
+      <h2 class="section-title" data-i18n="edu_title">Academic <em>Background</em></h2>
       <div class="tl-list">
         <div class="tl-entry">
           <div class="tl-year">2024 – 2027</div>
-          <div class="tl-body"><div class="tl-tag">Bachelor's</div><h3>University of Toulouse III – Paul Sabatier</h3><p>Faculty of Science &amp; Engineering</p></div>
+          <div class="tl-body">
+            <div class="tl-tag" data-i18n="edu_bachelor">Bachelor's</div>
+            <h3>University of Toulouse III – Paul Sabatier</h3>
+            <p data-i18n="edu_toulouse_sub">Faculty of Science &amp; Engineering</p>
+          </div>
         </div>
         <div class="tl-entry">
           <div class="tl-year">2023 – 2027</div>
-          <div class="tl-body"><div class="tl-tag">Bachelor's</div><h3>French University in Armenia</h3><p>Computer Science &amp; Applied Mathematics</p></div>
+          <div class="tl-body">
+            <div class="tl-tag" data-i18n="edu_bachelor">Bachelor's</div>
+            <h3>French University in Armenia</h3>
+            <p data-i18n="edu_fua_sub">Computer Science &amp; Applied Mathematics</p>
+          </div>
         </div>
         <div class="tl-entry">
           <div class="tl-year">2020 – 2023</div>
-          <div class="tl-body"><div class="tl-tag">Diploma</div><h3>Yerevan State Humanitarian College</h3><p>Insurance Studies</p></div>
+          <div class="tl-body">
+            <div class="tl-tag" data-i18n="edu_diploma">Diploma</div>
+            <h3>Yerevan State Humanitarian College</h3>
+            <p data-i18n="edu_yshc_sub">Insurance Studies</p>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- EXPERIENCE -->
     <section id="experience" class="section" data-section>
-      <div class="section-label">Experience</div>
-      <h2 class="section-title">Professional <em>Journey</em></h2>
+      <div class="section-label" data-i18n="nav_experience">Experience</div>
+      <h2 class="section-title" data-i18n="exp_title">Professional <em>Journey</em></h2>
       <div class="exp-grid">
         <div class="exp-card">
-          <div class="exp-card-header"><div class="exp-company">Liga Insurance</div><div class="exp-date">Sep 2025 – Present</div></div>
-          <div class="exp-role">Junior Actuarial Analyst</div>
-          <p>Performing comprehensive actuarial data analysis, building and validating risk models, and developing predictive analytics to support strategic business decisions.</p>
-          <div class="exp-tags"><span>Risk Modeling</span><span>Predictive Analytics</span><span>Data Analysis</span></div>
+          <div class="exp-card-header">
+            <div class="exp-company">Liga Insurance</div>
+            <div class="exp-date">Sep 2025 – Present</div>
+          </div>
+          <div class="exp-role" data-i18n="exp_role1">Junior Actuarial Analyst</div>
+          <p data-i18n="exp_desc1">Performing comprehensive actuarial data analysis, building and validating risk models, and developing predictive analytics to support strategic business decisions. Collaborating with cross-functional teams to interpret complex datasets and provide actionable insights.</p>
+          <div class="exp-tags">
+            <span>Risk Modeling</span><span>Predictive Analytics</span><span>Data Analysis</span>
+          </div>
         </div>
         <div class="exp-card">
-          <div class="exp-card-header"><div class="exp-company">Liga Insurance</div><div class="exp-date">July 2025</div></div>
-          <div class="exp-role">QA Engineer Intern</div>
-          <p>Conducted quality assurance testing of insurance systems, including API testing, functional validation, and defect reporting.</p>
-          <div class="exp-tags"><span>API Testing</span><span>QA</span><span>Software Testing</span></div>
+          <div class="exp-card-header">
+            <div class="exp-company">Liga Insurance</div>
+            <div class="exp-date">July 2025</div>
+          </div>
+          <div class="exp-role" data-i18n="exp_role2">QA Engineer Intern</div>
+          <p data-i18n="exp_desc2">Conducted thorough quality assurance testing of insurance systems, including API testing, functional validation, and defect reporting. Worked closely with the development team to ensure software releases met high standards of accuracy and reliability.</p>
+          <div class="exp-tags">
+            <span>API Testing</span><span>QA</span><span>Software Testing</span>
+          </div>
         </div>
         <div class="exp-card">
-          <div class="exp-card-header"><div class="exp-company">Ingo</div><div class="exp-date">2023</div></div>
-          <div class="exp-role">Accounts Receivable Representative</div>
-          <p>Managed invoicing processes, reconciled accounts, and ensured timely payment collection.</p>
-          <div class="exp-tags"><span>Finance</span><span>Insurance Ops</span><span>Reconciliation</span></div>
+          <div class="exp-card-header">
+            <div class="exp-company">Ingo</div>
+            <div class="exp-date">2023</div>
+          </div>
+          <div class="exp-role" data-i18n="exp_role3">Accounts Receivable Representative</div>
+          <p data-i18n="exp_desc3">Managed invoicing processes, reconciled accounts, and ensured timely payment collection. Developed a strong understanding of general insurance operations, client account management, and financial workflows.</p>
+          <div class="exp-tags">
+            <span>Finance</span><span>Insurance Ops</span><span>Reconciliation</span>
+          </div>
         </div>
         <div class="exp-card">
-          <div class="exp-card-header"><div class="exp-company">Liga Insurance</div><div class="exp-date">2022</div></div>
-          <div class="exp-role">Educational Intern</div>
-          <p>Assisted in company projects, contributing to data collection, analysis, and reporting tasks.</p>
-          <div class="exp-tags"><span>Data Collection</span><span>Reporting</span><span>Actuarial</span></div>
+          <div class="exp-card-header">
+            <div class="exp-company">Liga Insurance</div>
+            <div class="exp-date">2022</div>
+          </div>
+          <div class="exp-role" data-i18n="exp_role4">Educational Intern</div>
+          <p data-i18n="exp_desc4">Assisted in multiple company projects, contributing to data collection, analysis, and reporting tasks. Gained foundational knowledge of insurance processes, actuarial concepts, and organizational workflows.</p>
+          <div class="exp-tags">
+            <span>Data Collection</span><span>Reporting</span><span>Actuarial</span>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- PROJECTS -->
     <section id="projects" class="section" data-section>
-      <div class="section-label">Projects</div>
-      <h2 class="section-title">Selected <em>Work</em></h2>
+      <div class="section-label" data-i18n="nav_projects">Projects</div>
+      <h2 class="section-title" data-i18n="proj_title">Selected <em>Work</em></h2>
       <div class="projects-list">
         <a href="https://naremanukiian.github.io/IoTAirQuality/" target="_blank" rel="noopener" class="project-item">
           <div class="project-num">01</div>
           <div class="project-info">
             <h3>IoT Air Monitoring System</h3>
-            <p>Collaborating on an IoT-based hardware initiative (Tumo Labs – ClimateNet Project), designing and developing sensor-integrated systems to monitor environmental air quality in real time.</p>
+            <p data-i18n="proj1_desc">Collaborating on an IoT-based hardware initiative (Tumo Labs – ClimateNet Project), designing and developing sensor-integrated systems to monitor environmental air quality in real time.</p>
             <div class="project-stack"><span>IoT</span><span>Hardware</span><span>Sensors</span><span>ClimateNet</span></div>
           </div>
           <div class="project-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -158,7 +229,7 @@
           <div class="project-num">02</div>
           <div class="project-info">
             <h3>RideSharingDB System</h3>
-            <p>A single, self-contained SQL Server script (1,279 lines) building a complete ride-sharing database — 8 tables, 15 indexes, 8 views, 7 triggers, 8 stored procedures, 30 relational algebra queries, and role-based access control.</p>
+            <p data-i18n="proj2_desc">A single, self-contained SQL Server script (1,279 lines) that builds a complete ride-sharing database — 8 tables, 15 indexes, 8 views, 7 triggers, 8 stored procedures, 30 relational algebra queries, and role-based access control. Features a live interactive dashboard with four role-based views: Passenger, Driver, Analyst, and DBA.</p>
             <div class="project-stack"><span>SQL Server</span><span>T-SQL</span><span>Database Design</span><span>Stored Procedures</span><span>Triggers</span><span>Views</span><span>DCL</span></div>
           </div>
           <div class="project-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -167,7 +238,7 @@
           <div class="project-num">03</div>
           <div class="project-info">
             <h3>Smart Traffic Management with AI</h3>
-            <p>Studied AI applications in urban traffic prediction and signal optimization. Developed predictive algorithms and simulations, producing visualizations for in-depth analysis.</p>
+            <p data-i18n="proj3_desc">Studied AI applications in urban traffic prediction and signal optimization. Developed predictive algorithms and simulations, producing visualizations for in-depth analysis and reporting.</p>
             <div class="project-stack"><span>AI</span><span>Python</span><span>Simulation</span><span>Data Viz</span></div>
           </div>
           <div class="project-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -176,7 +247,7 @@
           <div class="project-num">04</div>
           <div class="project-info">
             <h3>AI &amp; Machine Learning for Menu Analysis</h3>
-            <p>Built a complete machine learning pipeline on real-world data from Degusto and ArtLunch. Performed preprocessing, TF-IDF &amp; feature engineering, clustering, classification, and regression.</p>
+            <p data-i18n="proj4_desc">Built a complete machine learning pipeline on real-world data from Degusto and ArtLunch. Performed preprocessing, TF-IDF &amp; feature engineering, clustering, classification, and regression, evaluating models with accuracy, F1-score, MSE, and visualizations.</p>
             <div class="project-stack"><span>Machine Learning</span><span>Python</span><span>TF-IDF</span><span>Data Analysis</span></div>
           </div>
           <div class="project-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -184,65 +255,69 @@
       </div>
     </section>
 
+    <!-- SKILLS -->
     <section id="skills" class="section" data-section>
-      <div class="section-label">Skills</div>
-      <h2 class="section-title">Technical <em>Expertise</em></h2>
+      <div class="section-label" data-i18n="nav_skills">Skills</div>
+      <h2 class="section-title" data-i18n="skills_title">Technical <em>Expertise</em></h2>
       <div class="skills-grid">
         <div class="skills-col">
-          <div class="skills-col-title">Programming</div>
+          <div class="skills-col-title" data-i18n="skills_prog">Programming</div>
           <div class="skill-row"><div class="skill-info"><span>Python</span><span class="skill-pct">70%</span></div><div class="skill-track"><div class="skill-fill" style="--w:70%"></div></div></div>
-          <div class="skill-row"><div class="skill-info"><span>C</span><span class="skill-pct">65%</span></div><div class="skill-track"><div class="skill-fill" style="--w:65%"></div></div></div>
-          <div class="skill-row"><div class="skill-info"><span>C++</span><span class="skill-pct">45%</span></div><div class="skill-track"><div class="skill-fill" style="--w:45%"></div></div></div>
-          <div class="skill-row"><div class="skill-info"><span>C#</span><span class="skill-pct">55%</span></div><div class="skill-track"><div class="skill-fill" style="--w:65%"></div></div></div>
-          <div class="skill-row"><div class="skill-info"><span>Git &amp; GitHub</span><span class="skill-pct">60%</span></div><div class="skill-track"><div class="skill-fill" style="--w:70%"></div></div></div>
-          <div class="skill-row"><div class="skill-info"><span>Shell &amp; CLI</span><span class="skill-pct">60%</span></div><div class="skill-track"><div class="skill-fill" style="--w:65%"></div></div></div>
+          <div class="skill-row"><div class="skill-info"><span>C</span><span class="skill-pct">65%</span></div><div class="skill-track"><div class="skill-fill" style="--w:70%"></div></div></div>
+          <div class="skill-row"><div class="skill-info"><span>C++</span><span class="skill-pct">45%</span></div><div class="skill-track"><div class="skill-fill" style="--w:40%"></div></div></div>
+          <div class="skill-row"><div class="skill-info"><span>C#</span><span class="skill-pct">55%</span></div><div class="skill-track"><div class="skill-fill" style="--w:55%"></div></div></div>
+          <div class="skill-row"><div class="skill-info"><span>Git &amp; GitHub</span><span class="skill-pct">60%</span></div><div class="skill-track"><div class="skill-fill" style="--w:60%"></div></div></div>
+          <div class="skill-row"><div class="skill-info"><span>Shell &amp; CLI</span><span class="skill-pct">60%</span></div><div class="skill-track"><div class="skill-fill" style="--w:60%"></div></div></div>
         </div>
         <div class="skills-col">
-          <div class="skills-col-title">Analytics &amp; AI</div>
+          <div class="skills-col-title" data-i18n="skills_ai">Analytics &amp; AI</div>
           <div class="skill-row"><div class="skill-info"><span>Linear Algebra &amp; Math</span><span class="skill-pct">85%</span></div><div class="skill-track"><div class="skill-fill" style="--w:85%"></div></div></div>
-          <div class="skill-row"><div class="skill-info"><span>Statistical Analysis</span><span class="skill-pct">75%</span></div><div class="skill-track"><div class="skill-fill" style="--w:78%"></div></div></div>
+          <div class="skill-row"><div class="skill-info"><span>Statistical Analysis</span><span class="skill-pct">75%</span></div><div class="skill-track"><div class="skill-fill" style="--w:75%"></div></div></div>
           <div class="skill-row"><div class="skill-info"><span>Predictive Analytics</span><span class="skill-pct">70%</span></div><div class="skill-track"><div class="skill-fill" style="--w:70%"></div></div></div>
-          <div class="skill-row"><div class="skill-info"><span>Data Analysis</span><span class="skill-pct">72%</span></div><div class="skill-track"><div class="skill-fill" style="--w:70%"></div></div></div>
-          <div class="skill-row"><div class="skill-info"><span>Machine Learning</span><span class="skill-pct">60%</span></div><div class="skill-track"><div class="skill-fill" style="--w:65%"></div></div></div>
+          <div class="skill-row"><div class="skill-info"><span>Data Analysis</span><span class="skill-pct">72%</span></div><div class="skill-track"><div class="skill-fill" style="--w:72%"></div></div></div>
+          <div class="skill-row"><div class="skill-info"><span>Machine Learning</span><span class="skill-pct">60%</span></div><div class="skill-track"><div class="skill-fill" style="--w:60%"></div></div></div>
           <div class="skill-row"><div class="skill-info"><span>Data Visualization</span><span class="skill-pct">70%</span></div><div class="skill-track"><div class="skill-fill" style="--w:70%"></div></div></div>
         </div>
       </div>
     </section>
 
+    <!-- LANGUAGES -->
     <section id="languages" class="section" data-section>
-      <div class="section-label">Languages</div>
-      <h2 class="section-title">I Speak <em>Four</em></h2>
+      <div class="section-label" data-i18n="lang_label">Languages</div>
+      <h2 class="section-title" data-i18n="lang_title">I Speak <em>Four</em></h2>
       <div class="lang-row">
-        <div class="lang-item"><div class="lang-flag">hy</div><div class="lang-name">Armenian</div><div class="lang-level">Native</div><div class="lang-bar"><div style="width:100%"></div></div></div>
-        <div class="lang-item"><div class="lang-flag">ru</div><div class="lang-name">Russian</div><div class="lang-level">Fluent</div><div class="lang-bar"><div style="width:90%"></div></div></div>
-        <div class="lang-item"><div class="lang-flag">en</div><div class="lang-name">English</div><div class="lang-level">Upper Intermediate</div><div class="lang-bar"><div style="width:75%"></div></div></div>
-        <div class="lang-item"><div class="lang-flag">fr</div><div class="lang-name">French</div><div class="lang-level">Intermediate</div><div class="lang-bar"><div style="width:55%"></div></div></div>
+        <div class="lang-item"><div class="lang-flag">hy</div><div class="lang-name" data-i18n="lang_hy">Armenian</div><div class="lang-level" data-i18n="level_native">Native</div><div class="lang-bar"><div style="width:100%"></div></div></div>
+        <div class="lang-item"><div class="lang-flag">ru</div><div class="lang-name" data-i18n="lang_ru">Russian</div><div class="lang-level" data-i18n="level_fluent">Fluent</div><div class="lang-bar"><div style="width:90%"></div></div></div>
+        <div class="lang-item"><div class="lang-flag">en</div><div class="lang-name" data-i18n="lang_en">English</div><div class="lang-level" data-i18n="level_upper">Upper Intermediate</div><div class="lang-bar"><div style="width:75%"></div></div></div>
+        <div class="lang-item"><div class="lang-flag">fr</div><div class="lang-name" data-i18n="lang_fr">French</div><div class="lang-level" data-i18n="level_inter">Intermediate</div><div class="lang-bar"><div style="width:55%"></div></div></div>
       </div>
     </section>
 
+    <!-- ACHIEVEMENTS -->
     <section id="achievements" class="section" data-section>
-      <div class="section-label">Achievements</div>
-      <h2 class="section-title">Recognition &amp; <em>Awards</em></h2>
+      <div class="section-label" data-i18n="nav_achievements">Achievements</div>
+      <h2 class="section-title" data-i18n="ach_title">Recognition &amp; <em>Awards</em></h2>
       <div class="award-block">
         <div class="award-icon">✦</div>
         <div class="award-body">
           <div class="award-year">2024 – 2025</div>
           <h3>LIGA Scholarship</h3>
-          <p>Awarded by LIGA Insurance for academic excellence, strong professional potential, and outstanding performance in insurance and IT-related fields.</p>
+          <p data-i18n="ach_desc">Awarded by LIGA Insurance for academic excellence, strong professional potential, and outstanding performance in insurance and IT-related fields.</p>
         </div>
       </div>
     </section>
 
   </main>
 
+  <!-- FOOTER -->
   <footer id="contact" class="site-footer">
     <div class="container footer-inner">
       <div class="footer-left">
         <div class="footer-name">Nare Manukyan</div>
-        <div class="footer-sub">Actuarial Data Analyst &amp; AI Enthusiast</div>
+        <div class="footer-sub" data-i18n="footer_sub">Actuarial Data Analyst &amp; AI Enthusiast</div>
       </div>
       <div class="footer-center">
-        <div class="footer-cta">Let's connect</div>
+        <div class="footer-cta" data-i18n="footer_cta">Let's connect</div>
         <div class="footer-links">
           <a href="https://github.com/naremanukiian/" target="_blank" rel="noopener" class="footer-link">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -256,13 +331,13 @@
       </div>
       <div class="footer-right">
         <div class="footer-copy">© <span id="yr"></span> Nare Manukyan</div>
-        <div class="footer-dev">Designed &amp; Developed with ♥</div>
+        <div class="footer-dev" data-i18n="footer_dev">Designed &amp; Developed with ♥</div>
       </div>
     </div>
   </footer>
 
   <!-- CHAT WIDGET -->
-  <div id="chat-bubble" title="Chat with Nare" aria-label="Open chat">
+  <div id="chat-bubble" title="Send me a message" aria-label="Open chat">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
       <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
     </svg>
@@ -270,7 +345,9 @@
 
   <div id="chat-panel" class="chat-panel" aria-hidden="true">
     <div class="chat-panel__header">
-      <div class="chat-panel__avatar"><img src="https://i.imgur.com/pXMb56j.jpeg" alt="Nare" /></div>
+      <div class="chat-panel__avatar">
+        <img src="https://i.imgur.com/pXMb56j.jpeg" alt="Nare" />
+      </div>
       <div class="chat-panel__meta">
         <strong>Nare Manukyan</strong>
         <small>Usually replies within a few hours</small>
@@ -278,7 +355,6 @@
       <button id="chat-close" aria-label="Close chat">✕</button>
     </div>
 
-    <!-- STEP 1: Name -->
     <div class="chat-step active" id="chat-step-1">
       <div class="chat-panel__messages">
         <div class="msg msg--owner"><p>Hi there 👋 I'm Nare. What's your name?</p></div>
@@ -291,11 +367,10 @@
       </div>
     </div>
 
-    <!-- STEP 2: Topic -->
     <div class="chat-step" id="chat-step-2">
       <div class="chat-panel__messages">
         <div class="msg msg--owner" id="chat-greet"></div>
-        <div class="msg msg--owner"><p>What would you like to know about?</p></div>
+        <div class="msg msg--owner"><p>What would you like to talk about?</p></div>
         <div class="chat-topics">
           <button class="chat-topic" data-topic="about">👩‍💻 About Nare</button>
           <button class="chat-topic" data-topic="education">🎓 Education</button>
@@ -307,9 +382,7 @@
       </div>
     </div>
 
-    <!-- STEP 3: Sub-questions + free chat -->
     <div class="chat-step" id="chat-step-3">
-      <button id="chat-back">← Back to topics</button>
       <div class="chat-panel__messages" id="chat-messages"></div>
       <div class="chat-panel__input-row">
         <input id="chat-input" type="text" placeholder="Type a message…" maxlength="500" autocomplete="off"/>
