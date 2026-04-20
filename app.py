@@ -6,7 +6,7 @@ eventlet.monkey_patch()
 
 from flask import Flask, render_template, request
 from flask_socketio import SocketIO, emit
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "change-this-in-production")
@@ -48,7 +48,7 @@ def tg_poll():
                     if sid:
                         socketio.emit("owner_reply", {
                             "text": text,
-                            "timestamp": datetime.utcnow().strftime("%H:%M"),
+                            "timestamp": datetime.now(timezone(timedelta(hours=4))).strftime("%H:%M"),
                         }, room=sid)
                         print(f"[reply] -> sid={sid}")
                     else:
