@@ -824,7 +824,7 @@ img { display: block; max-width: 100%; }
 /* ── RESPONSIVE ────────────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .hero-image-wrap { justify-self: center; }
+  .hero-image-wrap { justify-self: center; display: block; }
   .about-grid { grid-template-columns: 1fr; gap: 2rem; }
   .exp-grid { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: 1fr; gap: 3rem; }
@@ -856,9 +856,9 @@ img { display: block; max-width: 100%; }
 
   /* Hero */
   .hero-grid { padding: 3rem 0 2rem; grid-template-columns: 1fr; }
-  .hero-image-wrap { justify-self: center; order: -1; margin-bottom: 1rem; }
-  .hero-image-frame { width: 160px; }
-  .hero-img { height: 200px; }
+  .hero-image-wrap { display: flex !important; justify-content: center; order: -1; margin-bottom: 1.5rem; width: 100%; }
+  .hero-image-frame { width: 180px; border-radius: 50%; overflow: hidden; border: 2px solid var(--gold); }
+  .hero-img { height: 180px; width: 180px; object-fit: cover; border-radius: 50%; }
   .hero-image-badge { font-size: .65rem; padding: .35rem .75rem; }
   .hero-name { font-size: clamp(2.8rem, 12vw, 5rem); }
   .hero-eyebrow { font-size: .72rem; }
